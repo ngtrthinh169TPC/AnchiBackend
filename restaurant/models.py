@@ -1,13 +1,15 @@
 from django.db import models
 
+from tag.models import Tag
+
 
 class Restaurant(models.Model):
     restaurant_id = models.AutoField(primary_key=True)
-    restaurantName = models.CharField(max_length=256)
+    restaurant_name = models.CharField(max_length=256)
     address = models.CharField(max_length=1024)
     menu = models.CharField(max_length=4096)
     note = models.CharField(max_length=1024)
-    # tag_list_id
+    tags = models.ManyToManyField(Tag)
 
     def __str__(self):
-        return self.restaurantName + " (" + str(self.restaurant_id) + ")"
+        return self.restaurant_name + " (" + str(self.restaurant_id) + ")"

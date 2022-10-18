@@ -4,7 +4,14 @@ from .models import Food
 
 
 class FoodAdmin(admin.ModelAdmin):
-    list_display = ('food_id', 'foodName', 'description', 'address', 'recipe')
+    list_display = ('food_id', 'food_name', 'description',
+                    'address', 'recipe', 'tag_list', 'ingredient_list')
+
+    def tag_list(self, obj):
+        return [tag for tag in obj.tags.all()]
+
+    def ingredient_list(self, obj):
+        return [ingredient for ingredient in obj.ingredients.all()]
 
 
 admin.site.register(Food, FoodAdmin)
