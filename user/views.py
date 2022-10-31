@@ -33,7 +33,5 @@ class LoginAPI(APIView):
 
 class LogoutAPI(APIView):
     def post(self, request):
-        print("dang")
         logout(request)
-        print("at least we've logged out")
         return Response(status=200, data={'detail': 'Log out successfully.'})
