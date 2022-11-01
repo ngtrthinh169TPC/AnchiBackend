@@ -5,6 +5,7 @@ from rest_framework import routers
 
 from user.views import UserAPI, LoginAPI, LogoutAPI
 from food.views import AllFoodAPI, FavouriteFoodAPI
+from restaurant.views import AllRestaurantAPI, FavouriteRestaurantAPI
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -22,4 +23,9 @@ urlpatterns += [
 urlpatterns += [
     path('all-foods/', AllFoodAPI.as_view(), name='all-foods'),
     path('favourite-foods/', FavouriteFoodAPI.as_view(), name='favourite-foods')
+]
+
+urlpatterns += [
+    path('all-restaurants/', AllRestaurantAPI.as_view(), name='all-restaurants'),
+    path('favourite-restaurants/', FavouriteRestaurantAPI.as_view(), name='favourite-restaurants')
 ]

@@ -12,13 +12,15 @@ Backend for Anchi - A project for my school homework.
 
 Click the name of api to read more details.
 
-| Name                                | Method | Path                |
-| ----------------------------------- | ------ | ------------------- |
-| [Register](#register-api)           | `POST` | `/user/`            |
-| [Login](#login-api)                 | `POST` | `/login/`           |
-| [Logout](#logout)                   | `POST` | `/logout/`          |
-| [All Foods](#all-foods)             | `GET`  | `/all-foods/`       |
-| [Favourite Foods](#favourite-foods) | `GET`  | `/favourite-foods/` |
+| Name                                            | Method | Path                      |
+| ----------------------------------------------- | ------ | ------------------------- |
+| [Register](#register-api)                       | `POST` | `/user/`                  |
+| [Login](#login-api)                             | `POST` | `/login/`                 |
+| [Logout](#logout)                               | `POST` | `/logout/`                |
+| [All Foods](#all-foods)                         | `GET`  | `/all-foods/`             |
+| [Favourite Foods](#favourite-foods)             | `GET`  | `/favourite-foods/`       |
+| [All Restaurants](#all-restaurants)             | `GET`  | `/all-restaurants/`       |
+| [Favourite Restaurants](#favourite-restaurants) | `GET`  | `/favourite-restaurants/` |
 
 <br>
 
@@ -159,30 +161,95 @@ Click the name of api to read more details.
 
 - Response example:
 
-```json
-{
-  "username": "user003",
-  "favouriteFood": [
-    {
-      "id": 1,
-      "name": "banh mi",
-      "description": "banh mi bnh mi banh mi banh mi",
-      "address": "ai ma biet duoc",
-      "recipe": "banh mi",
-      "tags": [],
-      "ingredients": []
-    }
-  ]
-}
-```
+  ```json
+  {
+    "username": "user003",
+    "favouriteFood": [
+      {
+        "id": 1,
+        "name": "banh mi",
+        "description": "banh mi bnh mi banh mi banh mi",
+        "address": "ai ma biet duoc",
+        "recipe": "banh mi",
+        "tags": [],
+        "ingredients": []
+      }
+    ]
+  }
+  ```
 
 - _Anonymous User_ Response:
 
-```json
-{
-  "detail": "You must sign in to have your favourite foods listed."
-}
-```
+  ```json
+  {
+    "detail": "You must sign in to have your favourite foods listed."
+  }
+  ```
+
+<br>
+
+[^](#api-list)
+
+---
+
+## All Restaurants
+
+> Get a list of all of the restaurants from database
+
+<br>
+
+- Response example:
+
+  ```json
+  [
+    {
+      "id": 1,
+      "name": "tiem banh mi",
+      "address": "tiem banh mi",
+      "menu": "banh mi",
+      "note": "banh mi",
+      "tags": [1, 2]
+    }
+  ]
+  ```
+
+<br>
+
+[^](#api-list)
+
+---
+
+## Favourite Restaurants
+
+> Get a list of user's favourite restaurants
+
+<br>
+
+- Response example:
+
+  ```json
+  {
+    "username": "user003",
+    "favouriteRestaurant": [
+      {
+        "id": 1,
+        "name": "tiem banh mi",
+        "address": "tiem banh mi",
+        "menu": "banh mi",
+        "note": "banh mi",
+        "tags": [1, 2]
+      }
+    ]
+  }
+  ```
+
+- _Anonymous User_ Response:
+
+  ```json
+  {
+    "detail": "You must sign in to have your favourite restaurants listed."
+  }
+  ```
 
 <br>
 
