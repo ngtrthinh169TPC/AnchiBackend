@@ -4,7 +4,7 @@ from django.urls import path
 from rest_framework import routers
 
 from user.views import UserAPI, LoginAPI, LogoutAPI
-from food.views import AllFoodAPI
+from food.views import AllFoodAPI, FavouriteFoodAPI
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -20,5 +20,6 @@ urlpatterns += [
 ]
 
 urlpatterns += [
-    path('all-foods/', AllFoodAPI.as_view(), name='all-food')
+    path('all-foods/', AllFoodAPI.as_view(), name='all-foods'),
+    path('favourite/', FavouriteFoodAPI.as_view(), name='favourite-foods')
 ]

@@ -12,12 +12,13 @@ Backend for Anchi - A project for my school homework.
 
 Click the name of api to read more details.
 
-| Name                      | Method | Path          |
-| ------------------------- | ------ | ------------- |
-| [Register](#register-api) | `POST` | `/user/`      |
-| [Login](#login-api)       | `POST` | `/login/`     |
-| [Logout](#logout)         | `POST` | `/logout/`    |
-| [All Foods](#all-foods)   | `GET`  | `/all-foods/` |
+| Name                                | Method | Path                |
+| ----------------------------------- | ------ | ------------------- |
+| [Register](#register-api)           | `POST` | `/user/`            |
+| [Login](#login-api)                 | `POST` | `/login/`           |
+| [Logout](#logout)                   | `POST` | `/logout/`          |
+| [All Foods](#all-foods)             | `GET`  | `/all-foods/`       |
+| [Favourite Foods](#favourite-foods) | `GET`  | `/favourite-foods/` |
 
 <br>
 
@@ -79,7 +80,7 @@ Click the name of api to read more details.
   }
   ```
 
-- _Login Failed_ Response example:
+- _Login Failed_ Response:
 
   ```json
   {
@@ -139,6 +140,43 @@ Click the name of api to read more details.
     }
   ]
   ```
+
+<br>
+
+[^](#api-list)
+
+---
+
+## Favourite Foods
+
+<br>
+
+- Response example:
+
+```json
+{
+  "username": "user003",
+  "favourite": [
+    {
+      "food_id": 1,
+      "food_name": "banh mi",
+      "description": "banh mi bnh mi banh mi banh mi",
+      "address": "ai ma biet duoc",
+      "recipe": "banh mi",
+      "tags": [],
+      "ingredients": []
+    }
+  ]
+}
+```
+
+- _Anonymous User_ Response:
+
+```json
+{
+  "detail": "You must sign in to have your favourite foods listed."
+}
+```
 
 <br>
 

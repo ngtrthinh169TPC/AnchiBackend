@@ -5,7 +5,8 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from django.contrib.auth.models import User
-from rest_framework.authtoken.models import Token 
+from rest_framework.authtoken.models import Token
+from .models import AnchiUser
 from .serializers import UserSerializer
 
 
@@ -16,8 +17,8 @@ class UserAPI(viewsets.ModelViewSet):
     def create(self, request):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        user = User.objects.create_user(username=request.data.get(
-            'username'), password=request.data.get('password'))
+        user = AnchiUser.objects.create_user(username=serializer.validated_data.get(
+            'username'), password=serializer.validated_data.get('password'))
         token = Token.objects.create(user=user)
         
         return Response(status=201, data={'username': user.username, 'token': token.key})
