@@ -21,5 +21,5 @@ urlpatterns += [
 
 urlpatterns += [
     path('all-foods/', AllFoodAPI.as_view(), name='all-foods'),
-    path('favourite/', FavouriteFoodAPI.as_view(), name='favourite-foods')
+    path('favourite-foods/', FavouriteFoodAPI.as_view(), name='favourite-foods')
 ]

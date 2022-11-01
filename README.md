@@ -121,8 +121,8 @@ Click the name of api to read more details.
   ```json
   [
     {
-      "food_id": 1,
-      "food_name": "banh mi",
+      "id": 1,
+      "name": "banh mi",
       "description": "banh mi bnh mi banh mi banh mi",
       "address": "ai ma biet duoc",
       "recipe": "banh mi",
@@ -130,8 +130,8 @@ Click the name of api to read more details.
       "ingredients": []
     },
     {
-      "food_id": 2,
-      "food_name": "banh mi 2",
+      "id": 2,
+      "name": "banh mi 2",
       "description": "banh mi banh mi banh mi",
       "address": "banh mi",
       "recipe": "banh mi",
@@ -156,10 +156,10 @@ Click the name of api to read more details.
 ```json
 {
   "username": "user003",
-  "favourite": [
+  "favouriteFood": [
     {
-      "food_id": 1,
-      "food_name": "banh mi",
+      "id": 1,
+      "name": "banh mi",
       "description": "banh mi bnh mi banh mi banh mi",
       "address": "ai ma biet duoc",
       "recipe": "banh mi",

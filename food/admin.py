@@ -4,7 +4,7 @@ from .models import Food
 
 
 class FoodAdmin(admin.ModelAdmin):
-    list_display = ('food_id', 'food_name', 'description',
+    list_display = ('id', 'name', 'description',
                     'address', 'recipe', 'tag_list', 'ingredient_list')
 
     def tag_list(self, obj):

@@ -19,4 +19,4 @@ class FavouriteFoodAPI(APIView):
             return Response(status=401, data={'detail': "You must sign in to have your favourite foods listed."})
         favourite_foods = Food.objects.filter(favourite_food=request.user.id)
         serializer = FoodSerializer(favourite_foods, many=True)
-        return Response(status=200, data={'username': request.user.username, 'favourite': serializer.data})
+        return Response(status=200, data={'username': request.user.username, 'favouriteFood': serializer.data})
