@@ -96,6 +96,8 @@ Click the name of api to read more details.
 
 ## Logout
 
+> Log out
+
 <br>
 
 - Request body can be null. Only need the token.
@@ -113,6 +115,8 @@ Click the name of api to read more details.
 ---
 
 ## All Foods
+
+> Get a list of all of the foods from database
 
 <br>
 
@@ -148,6 +152,8 @@ Click the name of api to read more details.
 ---
 
 ## Favourite Foods
+
+> Get a list of user's favourite foods
 
 <br>
 
