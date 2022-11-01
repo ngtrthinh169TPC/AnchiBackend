@@ -132,8 +132,18 @@ Click the name of api to read more details.
       "description": "banh mi bnh mi banh mi banh mi",
       "address": "ai ma biet duoc",
       "recipe": "banh mi",
-      "tags": [],
-      "ingredients": []
+      "tags": [
+        {
+          "id": 2,
+          "name": "ai biet"
+        }
+      ],
+      "ingredients": [
+        {
+          "id": 1,
+          "name": "bot mi"
+        }
+      ]
     },
     {
       "id": 2,
@@ -141,8 +151,18 @@ Click the name of api to read more details.
       "description": "banh mi banh mi banh mi",
       "address": "banh mi",
       "recipe": "banh mi",
-      "tags": [],
-      "ingredients": []
+      "tags": [
+        {
+          "id": 1,
+          "name": "an sang"
+        }
+      ],
+      "ingredients": [
+        {
+          "id": 1,
+          "name": "bot mi"
+        }
+      ]
     }
   ]
   ```
@@ -171,8 +191,18 @@ Click the name of api to read more details.
         "description": "banh mi bnh mi banh mi banh mi",
         "address": "ai ma biet duoc",
         "recipe": "banh mi",
-        "tags": [],
-        "ingredients": []
+        "tags": [
+          {
+            "id": 2,
+            "name": "ai biet"
+          }
+        ],
+        "ingredients": [
+          {
+            "id": 1,
+            "name": "bot mi"
+          }
+        ]
       }
     ]
   }
@@ -208,7 +238,16 @@ Click the name of api to read more details.
       "address": "tiem banh mi",
       "menu": "banh mi",
       "note": "banh mi",
-      "tags": [1, 2]
+      "tags": [
+        {
+          "id": 1,
+          "name": "an sang"
+        },
+        {
+          "id": 2,
+          "name": "ai biet"
+        }
+      ]
     }
   ]
   ```
@@ -237,7 +276,16 @@ Click the name of api to read more details.
         "address": "tiem banh mi",
         "menu": "banh mi",
         "note": "banh mi",
-        "tags": [1, 2]
+        "tags": [
+          {
+            "id": 1,
+            "name": "an sang"
+          },
+          {
+            "id": 2,
+            "name": "ai biet"
+          }
+        ]
       }
     ]
   }

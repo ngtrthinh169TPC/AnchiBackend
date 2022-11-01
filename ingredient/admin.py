@@ -4,7 +4,7 @@ from .models import Ingredient
 
 
 class IngredientAdmin(admin.ModelAdmin):
-    list_display = ('ingredient_id', 'ingredient_name')
+    list_display = ('id', 'name')
 
 
 admin.site.register(Ingredient, IngredientAdmin)

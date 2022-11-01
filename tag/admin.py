@@ -4,7 +4,7 @@ from .models import Tag
 
 
 class TagAdmin(admin.ModelAdmin):
-    list_display = ('tag_id', 'tag_name')
+    list_display = ('id', 'name')
 
 
 admin.site.register(Tag, TagAdmin)
