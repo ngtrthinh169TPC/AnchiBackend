@@ -1,0 +1,1 @@
+web: gunicorn anchi_backend.wsgi --log-file -

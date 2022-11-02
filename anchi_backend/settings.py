@@ -1,3 +1,5 @@
+import dj_database_url
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -8,12 +10,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'pd_hyxsb9l5pz4*qnp8zxc8&62x=hdea+r$ow*fdogm0d1%bzs'
+# SECRET_KEY = 'pd_hyxsb9l5pz4*qnp8zxc8&62x=hdea+r$ow*fdogm0d1%bzs'
+SECRET_KEY = os.environ.get(
+    'DJANGO_SECRET_KEY', 'pd_hyxsb9l5pz4*qnp8zxc8&62x=hdea+r$ow*fdogm0d1%bzs')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -116,8 +121,14 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+CSRF_COOKIE_SECURE = True
+
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
     ]
 }
+
+# Update database configuration from $DATABASE_URL.
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
