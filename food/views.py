@@ -1,3 +1,4 @@
+import random
 from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -20,3 +21,11 @@ class FavouriteFoodAPI(APIView):
         favourite_foods = Food.objects.filter(favourite_food=request.user.id)
         serializer = FoodSerializer(favourite_foods, many=True)
         return Response(status=200, data={'username': request.user.username, 'favouriteFood': serializer.data})
+
+
+class NextFoodAPI(APIView):
+    def get(self, request):
+        food_list = Food.objects.all()
+        seed = random.randint(0, food_list.__len__() - 1)
+        serializer = FoodSerializer(food_list[seed])
+        return Response(status=200, data={'nextFood': serializer.data})

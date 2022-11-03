@@ -19,8 +19,10 @@ Click the name of api to read more details.
 | [Logout](#logout)                               | `POST` | `/logout/`                |
 | [All Foods](#all-foods)                         | `GET`  | `/all-foods/`             |
 | [Favourite Foods](#favourite-foods)             | `GET`  | `/favourite-foods/`       |
+| [Next Food](#next-food)                         | `GET`  | `/next-food/`             |
 | [All Restaurants](#all-restaurants)             | `GET`  | `/all-restaurants/`       |
 | [Favourite Restaurants](#favourite-restaurants) | `GET`  | `/favourite-restaurants/` |
+| [Next Restaurant](#next-restaurant)             | `GET`  | `/next-restaurant/`       |
 
 <br>
 
@@ -222,6 +224,44 @@ Click the name of api to read more details.
 
 ---
 
+## Next Food
+
+> Get a random food from database
+
+<br>
+
+- Response example:
+
+  ```json
+  {
+    "nextFood": {
+      "id": 1,
+      "name": "banh mi",
+      "description": "banh mi bnh mi banh mi banh mi",
+      "address": "ai ma biet duoc",
+      "recipe": "banh mi",
+      "tags": [
+        {
+          "id": 2,
+          "name": "ai biet"
+        }
+      ],
+      "ingredients": [
+        {
+          "id": 1,
+          "name": "bot mi"
+        }
+      ]
+    }
+  }
+  ```
+
+<br>
+
+[^](#api-list)
+
+---
+
 ## All Restaurants
 
 > Get a list of all of the restaurants from database
@@ -296,6 +336,42 @@ Click the name of api to read more details.
   ```json
   {
     "detail": "You must sign in to have your favourite restaurants listed."
+  }
+  ```
+
+<br>
+
+[^](#api-list)
+
+---
+
+## Next Restaurant
+
+> Get a random restaurant from database
+
+<br>
+
+- Response example:
+
+  ```json
+  {
+    "nextRestaurant": {
+      "id": 1,
+      "name": "tiem banh mi",
+      "address": "tiem banh mi",
+      "menu": "banh mi",
+      "note": "banh mi",
+      "tags": [
+        {
+          "id": 1,
+          "name": "an sang"
+        },
+        {
+          "id": 2,
+          "name": "ai biet"
+        }
+      ]
+    }
   }
   ```
 
