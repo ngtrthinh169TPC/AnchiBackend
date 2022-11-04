@@ -25,7 +25,10 @@ class FavouriteFoodAPI(APIView):
 
 class NextFoodAPI(APIView):
     def get(self, request):
-        food_list = Food.objects.all()
+        if (request.user.is_authenticated):
+          food_list = Food.objects.exclude(blacklist_food=request.user.id)
+        else:
+          food_list = Food.objects.all()
         seed = random.randint(0, food_list.__len__() - 1)
         serializer = FoodSerializer(food_list[seed])
         return Response(status=200, data={'nextFood': serializer.data})
