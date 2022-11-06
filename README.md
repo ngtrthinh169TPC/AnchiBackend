@@ -130,39 +130,65 @@ Click the name of api to read more details.
   [
     {
       "id": 1,
-      "name": "banh mi",
+      "name": "bánh mì",
+      "image": "/media/fallback.png",
       "description": "banh mi bnh mi banh mi banh mi",
       "address": "ai ma biet duoc",
       "recipe": "banh mi",
       "tags": [
         {
-          "id": 2,
-          "name": "ai biet"
+          "id": 1,
+          "name": "ăn sáng"
         }
       ],
       "ingredients": [
         {
           "id": 1,
-          "name": "bot mi"
+          "name": "bột mì"
         }
       ]
     },
     {
       "id": 2,
-      "name": "banh mi 2",
-      "description": "banh mi banh mi banh mi",
-      "address": "banh mi",
-      "recipe": "banh mi",
+      "name": "taiyaki đậu đỏ",
+      "image": "/media/fallback.png",
+      "description": "bánh cá Nhật Bản nhân đậu đỏ",
+      "address": "",
+      "recipe": "",
       "tags": [
         {
-          "id": 1,
-          "name": "an sang"
+          "id": 2,
+          "name": "ăn vặt"
         }
       ],
       "ingredients": [
         {
           "id": 1,
-          "name": "bot mi"
+          "name": "bột mì"
+        },
+        {
+          "id": 3,
+          "name": "đậu đỏ"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "bánh rán",
+      "image": "/media/images/foods/how.jpg",
+      "description": "bánh rán nhân đỗ xanh tẩm đường giòn ngon nhưng ăn nhiều thì béo",
+      "address": "",
+      "recipe": "",
+      "tags": [
+        {
+          "id": 2,
+          "name": "ăn vặt"
+        }
+      ],
+      "ingredients": [
+        {
+          "id": 2,
+          "name": "bột nếp"
         }
       ]
     }
@@ -189,20 +215,21 @@ Click the name of api to read more details.
     "favouriteFood": [
       {
         "id": 1,
-        "name": "banh mi",
+        "name": "bánh mì",
+        "image": "/media/fallback.png",
         "description": "banh mi bnh mi banh mi banh mi",
         "address": "ai ma biet duoc",
         "recipe": "banh mi",
         "tags": [
           {
-            "id": 2,
-            "name": "ai biet"
+            "id": 1,
+            "name": "ăn sáng"
           }
         ],
         "ingredients": [
           {
             "id": 1,
-            "name": "bot mi"
+            "name": "bột mì"
           }
         ]
       }
@@ -236,20 +263,21 @@ Click the name of api to read more details.
   {
     "nextFood": {
       "id": 1,
-      "name": "banh mi",
+      "name": "bánh mì",
+      "image": "/media/fallback.png",
       "description": "banh mi bnh mi banh mi banh mi",
       "address": "ai ma biet duoc",
       "recipe": "banh mi",
       "tags": [
         {
-          "id": 2,
-          "name": "ai biet"
+          "id": 1,
+          "name": "ăn sáng"
         }
       ],
       "ingredients": [
         {
           "id": 1,
-          "name": "bot mi"
+          "name": "bột mì"
         }
       ]
     }
@@ -275,17 +303,18 @@ Click the name of api to read more details.
     {
       "id": 1,
       "name": "tiem banh mi",
+      "image": "/media/fallback.png",
       "address": "tiem banh mi",
       "menu": "banh mi",
       "note": "banh mi",
       "tags": [
         {
           "id": 1,
-          "name": "an sang"
+          "name": "ăn sáng"
         },
         {
           "id": 2,
-          "name": "ai biet"
+          "name": "ăn vặt"
         }
       ]
     }
@@ -313,17 +342,18 @@ Click the name of api to read more details.
       {
         "id": 1,
         "name": "tiem banh mi",
+        "image": "/media/fallback.png",
         "address": "tiem banh mi",
         "menu": "banh mi",
         "note": "banh mi",
         "tags": [
           {
             "id": 1,
-            "name": "an sang"
+            "name": "ăn sáng"
           },
           {
             "id": 2,
-            "name": "ai biet"
+            "name": "ăn vặt"
           }
         ]
       }
@@ -358,17 +388,18 @@ Click the name of api to read more details.
     "nextRestaurant": {
       "id": 1,
       "name": "tiem banh mi",
+      "image": "/media/fallback.png",
       "address": "tiem banh mi",
       "menu": "banh mi",
       "note": "banh mi",
       "tags": [
         {
           "id": 1,
-          "name": "an sang"
+          "name": "ăn sáng"
         },
         {
           "id": 2,
-          "name": "ai biet"
+          "name": "ăn vặt"
         }
       ]
     }

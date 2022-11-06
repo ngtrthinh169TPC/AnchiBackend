@@ -4,8 +4,7 @@ from .models import Food
 
 
 class FoodAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'description',
-                    'address', 'recipe', 'tag_list', 'ingredient_list')
+    list_display = ('id', 'name', 'image', 'description', 'address', 'recipe', 'tag_list', 'ingredient_list')
 
     def tag_list(self, obj):
         return [tag for tag in obj.tags.all()]

@@ -6,6 +6,7 @@ from tag.models import Tag
 class Restaurant(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=256)
+    image = models.ImageField(upload_to='images/restaurants', default='fallback.png')
     address = models.CharField(max_length=1024, blank=True)
     menu = models.CharField(max_length=4096, blank=True)
     note = models.CharField(max_length=1024, blank=True)

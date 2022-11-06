@@ -26,7 +26,7 @@ class FavouriteRestaurantAPI(APIView):
 class NextRestaurantAPI(APIView):
     def get(self, request):
         if (request.user.is_authenticated):
-          restaurant_list = Restaurant.objects.exclude(blacklist_food=request.user.id)
+          restaurant_list = Restaurant.objects.exclude(blacklist_restaurant=request.user.id)
         else:
           restaurant_list = Restaurant.objects.all()
         seed = random.randint(0, restaurant_list.__len__() - 1)

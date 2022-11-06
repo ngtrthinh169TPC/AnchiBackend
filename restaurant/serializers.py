@@ -8,4 +8,4 @@ class RestaurantSerializer(serializers.ModelSerializer):
     tags = TagSerializer(read_only=True, many=True)
     class Meta:
         model = Restaurant
-        fields = ['id', 'name', 'address', 'menu', 'note', 'tags']
+        fields = ['id', 'name', 'image', 'address', 'menu', 'note', 'tags']
