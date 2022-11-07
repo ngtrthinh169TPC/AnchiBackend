@@ -7,6 +7,15 @@ from .models import Restaurant
 from .serializers import RestaurantSerializer
 
 
+class RestaurantAPI(APIView):
+    def post(self, request):
+        serializer = RestaurantSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(status=201, data=serializer.data)
+
+
+
 class AllRestaurantAPI(APIView):
     def get(self, request):
         restaurants = Restaurant.objects.all();

@@ -20,9 +20,11 @@ Click the name of api to read more details.
 | [All Foods](#all-foods)                         | `GET`  | `/all-foods/`             |
 | [Favourite Foods](#favourite-foods)             | `GET`  | `/favourite-foods/`       |
 | [Next Food](#next-food)                         | `GET`  | `/next-food/`             |
+| [POST Food](#post-food)                         | `POST` | `/food/`                  |
 | [All Restaurants](#all-restaurants)             | `GET`  | `/all-restaurants/`       |
 | [Favourite Restaurants](#favourite-restaurants) | `GET`  | `/favourite-restaurants/` |
 | [Next Restaurant](#next-restaurant)             | `GET`  | `/next-restaurant/`       |
+| [POST Restaurant](#post-restaurant)             | `POST` | `/restaurant/`            |
 
 <br>
 
@@ -100,6 +102,8 @@ Click the name of api to read more details.
 
 ## Logout
 
+<br>
+
 > Log out
 
 <br>
@@ -119,6 +123,8 @@ Click the name of api to read more details.
 ---
 
 ## All Foods
+
+<br>
 
 > Get a list of all of the foods from database
 
@@ -206,6 +212,8 @@ Click the name of api to read more details.
 
 ## Favourite Foods
 
+<br>
+
 > Get a list of user's favourite foods
 
 <br>
@@ -257,6 +265,8 @@ Click the name of api to read more details.
 
 ## Next Food
 
+<br>
+
 > Get a random food from database
 
 <br>
@@ -295,7 +305,48 @@ Click the name of api to read more details.
 
 ---
 
+## POST Food
+
+<br>
+
+> Post a new Food item to the system
+
+<br>
+
+- Request example:
+
+  ```json
+  {
+    "name": "bánh nướng",
+    "description": "nhân thập cẩm là nhất, nhân đậu xanh là tà đạo"
+  }
+  ```
+
+- Response example:
+
+  ```json
+  {
+    "id": 5,
+    "name": "bánh nướng",
+    "image": "/media/fallback.png",
+    "description": "nhân thập cẩm là nhất, nhân đậu xanh là tà đạo",
+    "address": "",
+    "recipe": "",
+    "tags": [],
+    "ingredients": [],
+    "verified": false
+  }
+  ```
+
+<br>
+
+[^](#api-list)
+
+---
+
 ## All Restaurants
+
+<br>
 
 > Get a list of all of the restaurants from database
 
@@ -309,6 +360,7 @@ Click the name of api to read more details.
       "id": 1,
       "name": "tiem banh mi",
       "image": "/media/fallback.png",
+      "description": "",
       "address": "tiem banh mi",
       "menu": "banh mi",
       "note": "banh mi",
@@ -323,6 +375,17 @@ Click the name of api to read more details.
         }
       ],
       "verified": false
+    },
+    {
+      "id": 4,
+      "name": "bánh trung thu Đông Phương",
+      "image": "/media/fallback.png",
+      "description": "hiệu bánh trung thu bán chạy nhất Hải Phòng hàng năm, nguyên nhân làm tắc đường Cầu Đất mỗi tháng 8",
+      "address": "",
+      "menu": "",
+      "note": "",
+      "tags": [],
+      "verified": false
     }
   ]
   ```
@@ -334,6 +397,8 @@ Click the name of api to read more details.
 ---
 
 ## Favourite Restaurants
+
+<br>
 
 > Get a list of user's favourite restaurants
 
@@ -349,6 +414,7 @@ Click the name of api to read more details.
         "id": 1,
         "name": "tiem banh mi",
         "image": "/media/fallback.png",
+        "description": "",
         "address": "tiem banh mi",
         "menu": "banh mi",
         "note": "banh mi",
@@ -384,6 +450,8 @@ Click the name of api to read more details.
 
 ## Next Restaurant
 
+<br>
+
 > Get a random restaurant from database
 
 <br>
@@ -393,24 +461,56 @@ Click the name of api to read more details.
   ```json
   {
     "nextRestaurant": {
-      "id": 1,
-      "name": "tiem banh mi",
-      "image": "/media/fallback.png",
-      "address": "tiem banh mi",
-      "menu": "banh mi",
-      "note": "banh mi",
-      "tags": [
-        {
-          "id": 1,
-          "name": "ăn sáng"
-        },
-        {
-          "id": 2,
-          "name": "ăn vặt"
-        }
-      ],
-      "verified": false
+        "id": 4,
+        "name": "bánh trung thu Đông Phương",
+        "image": "/media/fallback.png",
+        "description": "hiệu bánh trung thu bán chạy nhất Hải Phòng hàng năm, nguyên nhân làm tắc đường Cầu Đất mỗi tháng 8",
+        "address": "",
+        "menu": "",
+        "note": "",
+        "tags": [],
+        "verified": false
     }
+  }
+  }
+  ```
+
+<br>
+
+[^](#api-list)
+
+---
+
+## POST Restaurant
+
+<br>
+
+> Post a new Restaurant item to the system
+
+<br>
+
+- Request example:
+
+  ```json
+  {
+    "name": "bánh trung thu Đông Phương",
+    "description": "hiệu bánh trung thu bán chạy nhất Hải Phòng hàng năm, nguyên nhân làm tắc đường Cầu Đất mỗi tháng 8"
+  }
+  ```
+
+- Response example:
+
+  ```json
+  {
+    "id": 4,
+    "name": "bánh trung thu Đông Phương",
+    "image": "/media/fallback.png",
+    "description": "hiệu bánh trung thu bán chạy nhất Hải Phòng hàng năm, nguyên nhân làm tắc đường Cầu Đất mỗi tháng 8",
+    "address": "",
+    "menu": "",
+    "note": "",
+    "tags": [],
+    "verified": false
   }
   ```
 

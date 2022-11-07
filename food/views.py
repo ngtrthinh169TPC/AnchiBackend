@@ -7,6 +7,14 @@ from .models import Food
 from .serializers import FoodSerializer
 
 
+class FoodAPI(APIView):
+    def post(self, request):
+        serializer = FoodSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(status=201, data=serializer.data)
+
+
 class AllFoodAPI(APIView):
     def get(self, request):
         foods = Food.objects.all();
