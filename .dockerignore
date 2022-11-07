@@ -1,0 +1,9 @@
+.github
+.git
+deploy
+.dockerignore
+Dockerfile
+.secrets
+db.sqlite3
+LICENSE
+README.md
