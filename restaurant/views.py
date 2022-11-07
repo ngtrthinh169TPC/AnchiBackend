@@ -5,13 +5,25 @@ from rest_framework.views import APIView
 
 from .models import Restaurant
 from .serializers import RestaurantSerializer
+from tag.models import Tag
 
 
 class RestaurantAPI(APIView):
     def post(self, request):
         serializer = RestaurantSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        serializer.save()
+        restaurant = serializer.save()
+
+        if (request.data.get('tags') is None):
+            tag_list = []
+        else:
+            tag_list = request.data.get('tags')
+        for tag_id in tag_list:
+            tag = Tag.objects.get(id=tag_id)
+            if (tag is None):
+                continue
+            restaurant.tags.add(tag)
+            
         return Response(status=201, data=serializer.data)
 
 

@@ -110,7 +110,7 @@ Click the name of api to read more details.
 
 - Request body can be null. Only need the token.
 
-- _Logout Successful_ Response example:
+- _Logout Successful_ Response:
 
   ```json
   { "detail": "Log out successfully." }
@@ -318,7 +318,8 @@ Click the name of api to read more details.
   ```json
   {
     "name": "bánh nướng",
-    "description": "nhân thập cẩm là nhất, nhân đậu xanh là tà đạo"
+    "description": "nhân thập cẩm là số 1, nhân đậu xanh là tà đạo",
+    "tags": [2]
   }
   ```
 
@@ -326,13 +327,18 @@ Click the name of api to read more details.
 
   ```json
   {
-    "id": 5,
+    "id": 6,
     "name": "bánh nướng",
     "image": "/media/fallback.png",
-    "description": "nhân thập cẩm là nhất, nhân đậu xanh là tà đạo",
+    "description": "nhân thập cẩm là số 1, nhân đậu xanh là tà đạo",
     "address": "",
     "recipe": "",
-    "tags": [],
+    "tags": [
+      {
+        "id": 2,
+        "name": "ăn vặt"
+      }
+    ],
     "ingredients": [],
     "verified": false
   }
@@ -494,7 +500,8 @@ Click the name of api to read more details.
   ```json
   {
     "name": "bánh trung thu Đông Phương",
-    "description": "hiệu bánh trung thu bán chạy nhất Hải Phòng hàng năm, nguyên nhân làm tắc đường Cầu Đất mỗi tháng 8"
+    "description": "hiệu bánh trung thu bán chạy nhất Hải Phòng hàng năm, nguyên nhân làm tắc đường Cầu Đất mỗi tháng 8",
+    "tags": [2]
   }
   ```
 
@@ -502,14 +509,19 @@ Click the name of api to read more details.
 
   ```json
   {
-    "id": 4,
+    "id": 35,
     "name": "bánh trung thu Đông Phương",
     "image": "/media/fallback.png",
     "description": "hiệu bánh trung thu bán chạy nhất Hải Phòng hàng năm, nguyên nhân làm tắc đường Cầu Đất mỗi tháng 8",
     "address": "",
     "menu": "",
     "note": "",
-    "tags": [],
+    "tags": [
+      {
+        "id": 2,
+        "name": "ăn vặt"
+      }
+    ],
     "verified": false
   }
   ```

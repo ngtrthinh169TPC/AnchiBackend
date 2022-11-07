@@ -5,13 +5,36 @@ from rest_framework.views import APIView
 
 from .models import Food
 from .serializers import FoodSerializer
+from ingredient.models import Ingredient
+from tag.models import Tag
 
 
 class FoodAPI(APIView):
     def post(self, request):
         serializer = FoodSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        serializer.save()
+        food = serializer.save()
+
+        if (request.data.get('ingredients') is None):
+            ingredient_list = []
+        else:
+            ingredient_list = request.data.get('ingredients')
+        for ingredient_id in ingredient_list:
+            ingredient = Ingredient.objects.get(id=ingredient_id)
+            if (ingredient is None):
+                continue
+            food.ingredients.add(ingredient)
+
+        if (request.data.get('tags') is None):
+            tag_list = []
+        else:
+            tag_list = request.data.get('tags')
+        for tag_id in tag_list:
+            tag = Tag.objects.get(id=tag_id)
+            if (tag is None):
+                continue
+            food.tags.add(tag)
+            
         return Response(status=201, data=serializer.data)
 
 
