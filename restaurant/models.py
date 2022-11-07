@@ -11,6 +11,7 @@ class Restaurant(models.Model):
     menu = models.CharField(max_length=4096, blank=True)
     note = models.CharField(max_length=1024, blank=True)
     tags = models.ManyToManyField(Tag, blank=True)
+    verified = models.BooleanField(default=False, blank=True)
 
     def __str__(self):
         return self.name + " (" + str(self.id) + ")"

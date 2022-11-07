@@ -146,7 +146,8 @@ Click the name of api to read more details.
           "id": 1,
           "name": "bột mì"
         }
-      ]
+      ],
+      "verified": false
     },
     {
       "id": 2,
@@ -170,7 +171,8 @@ Click the name of api to read more details.
           "id": 3,
           "name": "đậu đỏ"
         }
-      ]
+      ],
+      "verified": false
     },
     {
       "id": 3,
@@ -190,7 +192,8 @@ Click the name of api to read more details.
           "id": 2,
           "name": "bột nếp"
         }
-      ]
+      ],
+      "verified": false
     }
   ]
   ```
@@ -231,7 +234,8 @@ Click the name of api to read more details.
             "id": 1,
             "name": "bột mì"
           }
-        ]
+        ],
+        "verified": false
       }
     ]
   }
@@ -279,7 +283,8 @@ Click the name of api to read more details.
           "id": 1,
           "name": "bột mì"
         }
-      ]
+      ],
+      "verified": false
     }
   }
   ```
@@ -316,7 +321,8 @@ Click the name of api to read more details.
           "id": 2,
           "name": "ăn vặt"
         }
-      ]
+      ],
+      "verified": false
     }
   ]
   ```
@@ -355,7 +361,8 @@ Click the name of api to read more details.
             "id": 2,
             "name": "ăn vặt"
           }
-        ]
+        ],
+        "verified": false
       }
     ]
   }
@@ -401,7 +408,8 @@ Click the name of api to read more details.
           "id": 2,
           "name": "ăn vặt"
         }
-      ]
+      ],
+      "verified": false
     }
   }
   ```

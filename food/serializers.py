@@ -10,4 +10,4 @@ class FoodSerializer(serializers.ModelSerializer):
     ingredients = IngredientSerializer(read_only=True, many=True)
     class Meta:
         model = Food
-        fields = ['id', 'name', 'image', 'description', 'address', 'recipe', 'tags', 'ingredients']
+        fields = ['id', 'name', 'image', 'description', 'address', 'recipe', 'tags', 'ingredients', 'verified']
