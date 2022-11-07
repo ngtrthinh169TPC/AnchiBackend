@@ -40,7 +40,7 @@ class FoodAPI(APIView):
 
 class AllFoodAPI(APIView):
     def get(self, request):
-        foods = Food.objects.all();
+        foods = Food.objects.filter(verified=True);
         serializer = FoodSerializer(foods, many=True)
         return Response(status=200, data=serializer.data)
 
@@ -49,7 +49,7 @@ class FavouriteFoodAPI(APIView):
     def get(self, request):
         if (request.user.is_anonymous):
             return Response(status=401, data={'detail': "You must sign in to have your favourite foods listed."})
-        favourite_foods = Food.objects.filter(favourite_food=request.user.id)
+        favourite_foods = Food.objects.filter(verified=True).filter(favourite_food=request.user.id)
         serializer = FoodSerializer(favourite_foods, many=True)
         return Response(status=200, data={'username': request.user.username, 'favouriteFood': serializer.data})
 
@@ -57,9 +57,9 @@ class FavouriteFoodAPI(APIView):
 class NextFoodAPI(APIView):
     def get(self, request):
         if (request.user.is_authenticated):
-          food_list = Food.objects.exclude(blacklist_food=request.user.id)
+          food_list = Food.objects.filter(verified=True).exclude(blacklist_food=request.user.id)
         else:
-          food_list = Food.objects.all()
+          food_list = Food.objects.filter(verified=True)
         seed = random.randint(0, food_list.__len__() - 1)
         serializer = FoodSerializer(food_list[seed])
         return Response(status=200, data={'nextFood': serializer.data})
