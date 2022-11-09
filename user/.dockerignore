@@ -1,8 +1,0 @@
-venv
-LICENSE
-README.md
-Dockerfile
-.git
-.gitignore
-.github
-deploy

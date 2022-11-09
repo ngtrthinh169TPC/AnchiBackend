@@ -1,4 +1,5 @@
 import random
+from django.db.models import Q
 from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -41,7 +42,7 @@ class FoodAPI(APIView):
 
 class AllFoodAPI(APIView):
     def get(self, request):
-        foods = Food.objects.filter(verified=True);
+        foods = Food.objects.filter(Q(verified=True) & ~Q(blacklist_food=request.user))
         serializer = FoodSerializer(foods, many=True)
         return Response(status=200, data=serializer.data)
 
@@ -50,7 +51,7 @@ class FavouriteFoodAPI(APIView):
     def get(self, request):
         if (request.user.is_anonymous):
             return Response(status=401, data={'detail': "You must sign in to have your favourite foods listed."})
-        favourite_foods = Food.objects.filter(verified=True).filter(favourite_food=request.user.id)
+        favourite_foods = Food.objects.filter(Q(verified=True) & Q(favourite_food=request.user.id))
         serializer = FoodSerializer(favourite_foods, many=True)
         return Response(status=200, data={'username': request.user.username, 'favouriteFood': serializer.data})
 
@@ -69,7 +70,7 @@ class BlacklistFoodAPI(APIView):
     def get(self, request):
         if (request.user.is_anonymous):
             return Response(status=401, data={'detail': "You must sign in to blacklist foods."})
-        blacklist_foods = Food.objects.filter(verified=True).filter(blacklist_food=request.user.id)
+        blacklist_foods = Food.objects.filter(Q(verified=True) & Q(blacklist_food=request.user.id))
         serializer = FoodSerializer(blacklist_foods, many=True)
         return Response(status=200, data={'username': request.user.username, 'blacklistFood': serializer.data})
 
@@ -87,7 +88,7 @@ class BlacklistFoodAPI(APIView):
 class NextFoodAPI(APIView):
     def get(self, request):
         if (request.user.is_authenticated):
-          food_list = Food.objects.filter(verified=True).exclude(blacklist_food=request.user.id)
+          food_list = Food.objects.filter(Q(verified=True) & ~Q(blacklist_food=request.user.id))
         else:
           food_list = Food.objects.filter(verified=True)
         seed = random.randint(0, food_list.__len__() - 1)
