@@ -54,6 +54,15 @@ class FavouriteFoodAPI(APIView):
         return Response(status=200, data={'username': request.user.username, 'favouriteFood': serializer.data})
 
 
+class BlacklistFoodAPI(APIView):
+    def get(self, request):
+        if (request.user.is_anonymous):
+            return Response(status=401, data={'detail': "You must sign in to blacklist foods."})
+        blacklist_foods = Food.objects.filter(verified=True).filter(blacklist_food=request.user.id)
+        serializer = FoodSerializer(blacklist_foods, many=True)
+        return Response(status=200, data={'username': request.user.username, 'blacklistFood': serializer.data})
+
+
 class NextFoodAPI(APIView):
     def get(self, request):
         if (request.user.is_authenticated):

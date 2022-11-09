@@ -1,7 +1,8 @@
 # AnchiBackend
 
 Backend for Anchi - A project for my school homework.
-Currently deployed [here](https://anchi-api.aqaurius6666.space/).
+
+This project is currently (2022) deployed [here](https://anchi-api.aqaurius6666.space/).
 
 <br>
 
@@ -11,25 +12,50 @@ Currently deployed [here](https://anchi-api.aqaurius6666.space/).
 
 ## API List
 
-Click the name of api to read more details.
+Click the name of API for more details.
+
+### User APIs
+
+| Name                      | Method | Path       |
+| ------------------------- | ------ | ---------- |
+| [Register](#register-api) | `POST` | `/user/`   |
+| [Login](#login-api)       | `POST` | `/login/`  |
+| [Logout](#logout)         | `POST` | `/logout/` |
+
+<br>
+
+### Food APIs
+
+| Name                                | Method | Path                |
+| ----------------------------------- | ------ | ------------------- |
+| [All Foods](#all-foods)             | `GET`  | `/all-foods/`       |
+| [Favourite Foods](#favourite-foods) | `GET`  | `/favourite-foods/` |
+| [Blacklist Foods](#blacklist-foods) | `GET`  | `/blacklist-foods/` |
+| [Next Food](#next-food)             | `GET`  | `/next-food/`       |
+| [POST Food](#post-food)             | `POST` | `/food/`            |
+
+<br>
+
+### Restaurant APIs
 
 | Name                                            | Method | Path                      |
 | ----------------------------------------------- | ------ | ------------------------- |
-| [Register](#register-api)                       | `POST` | `/user/`                  |
-| [Login](#login-api)                             | `POST` | `/login/`                 |
-| [Logout](#logout)                               | `POST` | `/logout/`                |
-| [All Foods](#all-foods)                         | `GET`  | `/all-foods/`             |
-| [Favourite Foods](#favourite-foods)             | `GET`  | `/favourite-foods/`       |
-| [Next Food](#next-food)                         | `GET`  | `/next-food/`             |
-| [POST Food](#post-food)                         | `POST` | `/food/`                  |
 | [All Restaurants](#all-restaurants)             | `GET`  | `/all-restaurants/`       |
 | [Favourite Restaurants](#favourite-restaurants) | `GET`  | `/favourite-restaurants/` |
+| [Blacklist Restaurants](#blacklist-restaurants) | `GET`  | `/blacklist-restaurants/` |
 | [Next Restaurant](#next-restaurant)             | `GET`  | `/next-restaurant/`       |
 | [POST Restaurant](#post-restaurant)             | `POST` | `/restaurant/`            |
-| [All Tags](#all-tags)                           | `GET`  | `/all-tags/`              |
-| [POST Tag](#post-tag)                           | `POST` | `/tag/`                   |
-| [All Ingredients](#all-ingredients)             | `GET`  | `/all-ingredients/`       |
-| [POST Ingredient](#post-ingredient)             | `POST` | `/ingredient/`            |
+
+<br>
+
+### Tag & Ingredient APIs
+
+| Name                                | Method | Path                |
+| ----------------------------------- | ------ | ------------------- |
+| [All Tags](#all-tags)               | `GET`  | `/all-tags/`        |
+| [POST Tag](#post-tag)               | `POST` | `/tag/`             |
+| [All Ingredients](#all-ingredients) | `GET`  | `/all-ingredients/` |
+| [POST Ingredient](#post-ingredient) | `POST` | `/ingredient/`      |
 
 <br>
 
@@ -286,6 +312,63 @@ Click the name of api to read more details.
 
 ---
 
+## Blacklist Foods
+
+<br>
+
+> Get a list of user's blacklisted foods
+
+<br>
+
+- Response example:
+
+  ```json
+  {
+    "username": "user003",
+    "blacklistFood": [
+      {
+        "id": 3,
+        "name": "bánh rán",
+        "image": "/media/images/foods/how.jpg",
+        "description": "bánh rán nhân đỗ xanh tẩm đường giòn ngon nhưng ăn nhiều thì béo",
+        "address": "",
+        "recipe": "",
+        "tags": [
+          {
+            "id": 2,
+            "name": "ăn vặt",
+            "description": "",
+            "verified": true
+          }
+        ],
+        "ingredients": [
+          {
+            "id": 2,
+            "name": "bột nếp",
+            "description": "",
+            "verified": true
+          }
+        ],
+        "verified": true
+      }
+    ]
+  }
+  ```
+
+- _Anonymous User_ Response:
+
+  ```json
+  {
+    "detail": "You must sign in to blacklist foods."
+  }
+  ```
+
+<br>
+
+[^](#api-list)
+
+---
+
 ## Next Food
 
 <br>
@@ -489,6 +572,49 @@ Click the name of api to read more details.
   ```json
   {
     "detail": "You must sign in to have your favourite restaurants listed."
+  }
+  ```
+
+<br>
+
+[^](#api-list)
+
+---
+
+## Blacklist Restaurants
+
+<br>
+
+> Get a list of user's blacklisted restaurants
+
+<br>
+
+- Response example:
+
+  ```json
+  {
+    "username": "user003",
+    "blacklistRestaurant": [
+      {
+        "id": 36,
+        "name": "phở có hành?",
+        "image": "/media/fallback.png",
+        "description": "thêm vào để blacklist",
+        "address": "",
+        "menu": "",
+        "note": "hành ~~ rất nhiều hành",
+        "tags": [],
+        "verified": true
+      }
+    ]
+  }
+  ```
+
+- _Anonymous User_ Response:
+
+  ```json
+  {
+    "detail": "You must sign in to blacklist restaurants."
   }
   ```
 
