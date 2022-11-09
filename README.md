@@ -25,6 +25,8 @@ Click the name of api to read more details.
 | [Favourite Restaurants](#favourite-restaurants) | `GET`  | `/favourite-restaurants/` |
 | [Next Restaurant](#next-restaurant)             | `GET`  | `/next-restaurant/`       |
 | [POST Restaurant](#post-restaurant)             | `POST` | `/restaurant/`            |
+| [All Tags](#all-tags)                           | `GET`  | `/all-tags/`              |
+| [All Ingredients](#all-ingredients)             | `GET`  | `/all-ingredients/`       |
 
 <br>
 
@@ -144,16 +146,20 @@ Click the name of api to read more details.
       "tags": [
         {
           "id": 1,
-          "name": "ăn sáng"
+          "name": "ăn sáng",
+          "description": "",
+          "verified": true
         }
       ],
       "ingredients": [
         {
           "id": 1,
-          "name": "bột mì"
+          "name": "bột mì",
+          "description": "",
+          "verified": true
         }
       ],
-      "verified": false
+      "verified": true
     },
     {
       "id": 2,
@@ -165,20 +171,26 @@ Click the name of api to read more details.
       "tags": [
         {
           "id": 2,
-          "name": "ăn vặt"
+          "name": "ăn vặt",
+          "description": "",
+          "verified": true
         }
       ],
       "ingredients": [
         {
           "id": 1,
-          "name": "bột mì"
+          "name": "bột mì",
+          "description": "",
+          "verified": true
         },
         {
           "id": 3,
-          "name": "đậu đỏ"
+          "name": "đậu đỏ",
+          "description": "",
+          "verified": true
         }
       ],
-      "verified": false
+      "verified": true
     },
     {
       "id": 3,
@@ -190,16 +202,20 @@ Click the name of api to read more details.
       "tags": [
         {
           "id": 2,
-          "name": "ăn vặt"
+          "name": "ăn vặt",
+          "description": "",
+          "verified": true
         }
       ],
       "ingredients": [
         {
           "id": 2,
-          "name": "bột nếp"
+          "name": "bột nếp",
+          "description": "",
+          "verified": true
         }
       ],
-      "verified": false
+      "verified": true
     }
   ]
   ```
@@ -234,16 +250,20 @@ Click the name of api to read more details.
         "tags": [
           {
             "id": 1,
-            "name": "ăn sáng"
+            "name": "ăn sáng",
+            "description": "",
+            "verified": true
           }
         ],
         "ingredients": [
           {
             "id": 1,
-            "name": "bột mì"
+            "name": "bột mì",
+            "description": "",
+            "verified": true
           }
         ],
-        "verified": false
+        "verified": true
       }
     ]
   }
@@ -285,16 +305,20 @@ Click the name of api to read more details.
       "tags": [
         {
           "id": 1,
-          "name": "ăn sáng"
+          "name": "ăn sáng",
+          "description": "",
+          "verified": true
         }
       ],
       "ingredients": [
         {
           "id": 1,
-          "name": "bột mì"
+          "name": "bột mì",
+          "description": "",
+          "verified": true
         }
       ],
-      "verified": false
+      "verified": true
     }
   }
   ```
@@ -336,7 +360,9 @@ Click the name of api to read more details.
     "tags": [
       {
         "id": 2,
-        "name": "ăn vặt"
+        "name": "ăn vặt",
+        "description": "",
+        "verified": true
       }
     ],
     "ingredients": [],
@@ -373,14 +399,18 @@ Click the name of api to read more details.
       "tags": [
         {
           "id": 1,
-          "name": "ăn sáng"
+          "name": "ăn sáng",
+          "description": "",
+          "verified": true
         },
         {
           "id": 2,
-          "name": "ăn vặt"
+          "name": "ăn vặt",
+          "description": "",
+          "verified": true
         }
       ],
-      "verified": false
+      "verified": true
     },
     {
       "id": 4,
@@ -390,8 +420,15 @@ Click the name of api to read more details.
       "address": "",
       "menu": "",
       "note": "",
-      "tags": [],
-      "verified": false
+      "tags": [
+        {
+          "id": 2,
+          "name": "ăn vặt",
+          "description": "",
+          "verified": true
+        }
+      ],
+      "verified": true
     }
   ]
   ```
@@ -427,14 +464,18 @@ Click the name of api to read more details.
         "tags": [
           {
             "id": 1,
-            "name": "ăn sáng"
+            "name": "ăn sáng",
+            "description": "",
+            "verified": true
           },
           {
             "id": 2,
-            "name": "ăn vặt"
+            "name": "ăn vặt",
+            "description": "",
+            "verified": true
           }
         ],
-        "verified": false
+        "verified": true
       }
     ]
   }
@@ -467,17 +508,23 @@ Click the name of api to read more details.
   ```json
   {
     "nextRestaurant": {
-        "id": 4,
-        "name": "bánh trung thu Đông Phương",
-        "image": "/media/fallback.png",
-        "description": "hiệu bánh trung thu bán chạy nhất Hải Phòng hàng năm, nguyên nhân làm tắc đường Cầu Đất mỗi tháng 8",
-        "address": "",
-        "menu": "",
-        "note": "",
-        "tags": [],
-        "verified": false
+      "id": 4,
+      "name": "bánh trung thu Đông Phương",
+      "image": "/media/fallback.png",
+      "description": "hiệu bánh trung thu bán chạy nhất Hải Phòng hàng năm, nguyên nhân làm tắc đường Cầu Đất mỗi tháng 8",
+      "address": "",
+      "menu": "",
+      "note": "",
+      "tags": [
+        {
+          "id": 2,
+          "name": "ăn vặt",
+          "description": "",
+          "verified": true
+        }
+      ],
+      "verified": true
     }
-  }
   }
   ```
 
@@ -519,11 +566,85 @@ Click the name of api to read more details.
     "tags": [
       {
         "id": 2,
-        "name": "ăn vặt"
+        "name": "ăn vặt",
+        "description": "",
+        "verified": true
       }
     ],
-    "verified": false
+    "verified": true
   }
+  ```
+
+<br>
+
+[^](#api-list)
+
+---
+
+## All Tags
+
+<br>
+
+> Get a list of all of the tags from database
+
+<br>
+
+- Response example:
+
+  ```json
+  [
+    {
+      "id": 1,
+      "name": "ăn sáng",
+      "description": "",
+      "verified": true
+    },
+    {
+      "id": 2,
+      "name": "ăn vặt",
+      "description": "",
+      "verified": true
+    }
+  ]
+  ```
+
+<br>
+
+[^](#api-list)
+
+---
+
+## All Ingredients
+
+<br>
+
+> Get a list of all of the ingredients from database
+
+<br>
+
+- Response example:
+
+  ```json
+  [
+    {
+      "id": 1,
+      "name": "bột mì",
+      "description": "",
+      "verified": true
+    },
+    {
+      "id": 2,
+      "name": "bột nếp",
+      "description": "",
+      "verified": true
+    },
+    {
+      "id": 3,
+      "name": "đậu đỏ",
+      "description": "",
+      "verified": true
+    }
+  ]
   ```
 
 <br>
