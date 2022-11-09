@@ -26,25 +26,27 @@ Click the name of API for more details.
 
 ### Food APIs
 
-| Name                                | Method | Path                |
-| ----------------------------------- | ------ | ------------------- |
-| [All Foods](#all-foods)             | `GET`  | `/all-foods/`       |
-| [Favourite Foods](#favourite-foods) | `GET`  | `/favourite-foods/` |
-| [Blacklist Foods](#blacklist-foods) | `GET`  | `/blacklist-foods/` |
-| [Next Food](#next-food)             | `GET`  | `/next-food/`       |
-| [POST Food](#post-food)             | `POST` | `/food/`            |
+| Name                                        | Method | Path                |
+| ------------------------------------------- | ------ | ------------------- |
+| [All Foods](#all-foods)                     | `GET`  | `/all-foods/`       |
+| [Favourite Foods](#favourite-foods)         | `GET`  | `/favourite-foods/` |
+| [POST Favourite Food](#post-favourite-food) | `POST` | `/favourite-foods/` |
+| [Blacklist Foods](#blacklist-foods)         | `GET`  | `/blacklist-foods/` |
+| [Next Food](#next-food)                     | `GET`  | `/next-food/`       |
+| [POST Food](#post-food)                     | `POST` | `/food/`            |
 
 <br>
 
 ### Restaurant APIs
 
-| Name                                            | Method | Path                      |
-| ----------------------------------------------- | ------ | ------------------------- |
-| [All Restaurants](#all-restaurants)             | `GET`  | `/all-restaurants/`       |
-| [Favourite Restaurants](#favourite-restaurants) | `GET`  | `/favourite-restaurants/` |
-| [Blacklist Restaurants](#blacklist-restaurants) | `GET`  | `/blacklist-restaurants/` |
-| [Next Restaurant](#next-restaurant)             | `GET`  | `/next-restaurant/`       |
-| [POST Restaurant](#post-restaurant)             | `POST` | `/restaurant/`            |
+| Name                                                    | Method | Path                      |
+| ------------------------------------------------------- | ------ | ------------------------- |
+| [All Restaurants](#all-restaurants)                     | `GET`  | `/all-restaurants/`       |
+| [Favourite Restaurants](#favourite-restaurants)         | `GET`  | `/favourite-restaurants/` |
+| [POST Favourite Restaurant](#post-favourite-restaurant) | `POST` | `/favourite-restaurants/` |
+| [Blacklist Restaurants](#blacklist-restaurants)         | `GET`  | `/blacklist-restaurants/` |
+| [Next Restaurant](#next-restaurant)                     | `GET`  | `/next-restaurant/`       |
+| [POST Restaurant](#post-restaurant)                     | `POST` | `/restaurant/`            |
 
 <br>
 
@@ -288,6 +290,102 @@ Click the name of API for more details.
           {
             "id": 1,
             "name": "bột mì",
+            "description": "",
+            "verified": true
+          }
+        ],
+        "verified": true
+      }
+    ]
+  }
+  ```
+
+- _Anonymous User_ Response:
+
+  ```json
+  {
+    "detail": "You must sign in to have your favourite foods listed."
+  }
+  ```
+
+<br>
+
+[^](#api-list)
+
+---
+
+## POST Favourite Food
+
+<br>
+
+> Add food into your favourite list.
+
+<br>
+
+- Request example:
+
+  ```json
+  {
+    "foodId": 2
+  }
+  ```
+
+- Response example:
+
+  ```json
+  {
+    "username": "user003",
+    "favouriteFood": [
+      {
+        "id": 1,
+        "name": "bánh mì",
+        "image": "/media/fallback.png",
+        "description": "banh mi bnh mi banh mi banh mi",
+        "address": "ai ma biet duoc",
+        "recipe": "banh mi",
+        "tags": [
+          {
+            "id": 1,
+            "name": "ăn sáng",
+            "description": "",
+            "verified": true
+          }
+        ],
+        "ingredients": [
+          {
+            "id": 1,
+            "name": "bột mì",
+            "description": "",
+            "verified": true
+          }
+        ],
+        "verified": true
+      },
+      {
+        "id": 2,
+        "name": "taiyaki đậu đỏ",
+        "image": "/media/fallback.png",
+        "description": "bánh cá Nhật Bản nhân đậu đỏ",
+        "address": "",
+        "recipe": "",
+        "tags": [
+          {
+            "id": 2,
+            "name": "ăn vặt",
+            "description": "",
+            "verified": true
+          }
+        ],
+        "ingredients": [
+          {
+            "id": 1,
+            "name": "bột mì",
+            "description": "",
+            "verified": true
+          },
+          {
+            "id": 3,
+            "name": "đậu đỏ",
             "description": "",
             "verified": true
           }
@@ -561,6 +659,81 @@ Click the name of API for more details.
             "verified": true
           }
         ],
+        "verified": true
+      }
+    ]
+  }
+  ```
+
+- _Anonymous User_ Response:
+
+  ```json
+  {
+    "detail": "You must sign in to have your favourite restaurants listed."
+  }
+  ```
+
+<br>
+
+[^](#api-list)
+
+---
+
+## POST Favourite Restaurant
+
+<br>
+
+> Add restaurant into your favourite list.
+
+<br>
+
+- Request example:
+
+  ```json
+  {
+    "restaurantId": 2
+  }
+  ```
+
+- Response example:
+
+  ```json
+  {
+    "username": "user003",
+    "favouriteRestaurant": [
+      {
+        "id": 1,
+        "name": "tiem banh mi",
+        "image": "/media/fallback.png",
+        "description": "",
+        "address": "tiem banh mi",
+        "menu": "banh mi",
+        "note": "banh mi",
+        "tags": [
+          {
+            "id": 1,
+            "name": "ăn sáng",
+            "description": "",
+            "verified": true
+          },
+          {
+            "id": 2,
+            "name": "ăn vặt",
+            "description": "",
+            "verified": true
+          }
+        ],
+        "verified": true
+      },
+      {
+        "id": 36,
+        "name": "phở có hành?",
+        "image": "/media/fallback.png",
+        "description": "thêm vào để blacklist",
+        "address": "",
+        "menu": "",
+        "note": "hành ~~ rất nhiều hành",
+        "tags": [],
         "verified": true
       }
     ]

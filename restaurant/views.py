@@ -6,6 +6,7 @@ from rest_framework.views import APIView
 from .models import Restaurant
 from .serializers import RestaurantSerializer
 from tag.models import Tag
+from user.models import AnchiUser
 
 
 class RestaurantAPI(APIView):
@@ -41,6 +42,16 @@ class FavouriteRestaurantAPI(APIView):
             return Response(status=401, data={'detail': "You must sign in to have your favourite restaurants listed."})
         favourite_restaurants = Restaurant.objects.filter(verified=True).filter(favourite_restaurant=request.user.id)
         serializer = RestaurantSerializer(favourite_restaurants, many=True)
+        return Response(status=200, data={'username': request.user.username, 'favouriteRestaurant': serializer.data})
+
+    def post(self, request):
+        if (request.user.is_anonymous):
+            return Response(status=401, data={'detail': "You must sign in to have your favourite restaurants listed."})
+        user = AnchiUser.objects.get(id=request.user.id)
+        restaurant_id = request.data.get('restaurantId')
+        restaurant = Restaurant.objects.get(id=restaurant_id)
+        user.favourite_restaurant.add(restaurant)
+        serializer = RestaurantSerializer(user.favourite_restaurant, many=True)
         return Response(status=200, data={'username': request.user.username, 'favouriteRestaurant': serializer.data})
 
 

@@ -7,6 +7,7 @@ from .models import Food
 from .serializers import FoodSerializer
 from ingredient.models import Ingredient
 from tag.models import Tag
+from user.models import AnchiUser
 
 
 class FoodAPI(APIView):
@@ -51,6 +52,16 @@ class FavouriteFoodAPI(APIView):
             return Response(status=401, data={'detail': "You must sign in to have your favourite foods listed."})
         favourite_foods = Food.objects.filter(verified=True).filter(favourite_food=request.user.id)
         serializer = FoodSerializer(favourite_foods, many=True)
+        return Response(status=200, data={'username': request.user.username, 'favouriteFood': serializer.data})
+
+    def post(self, request):
+        if (request.user.is_anonymous):
+            return Response(status=401, data={'detail': "You must sign in to have your favourite foods listed."})
+        user = AnchiUser.objects.get(id=request.user.id)
+        food_id = request.data.get('foodId')
+        food = Food.objects.get(id=food_id)
+        user.favourite_food.add(food)
+        serializer = FoodSerializer(user.favourite_food, many=True)
         return Response(status=200, data={'username': request.user.username, 'favouriteFood': serializer.data})
 
 
