@@ -73,6 +73,16 @@ class BlacklistFoodAPI(APIView):
         serializer = FoodSerializer(blacklist_foods, many=True)
         return Response(status=200, data={'username': request.user.username, 'blacklistFood': serializer.data})
 
+    def post(self, request):
+        if (request.user.is_anonymous):
+            return Response(status=401, data={'detail': "You must sign in to blacklist foods."})
+        user = AnchiUser.objects.get(id=request.user.id)
+        food_id = request.data.get('foodId')
+        food = Food.objects.get(id=food_id)
+        user.blacklist_food.add(food)
+        serializer = FoodSerializer(user.blacklist_food, many=True)
+        return Response(status=200, data={'username': request.user.username, 'blacklistFood': serializer.data})
+
 
 class NextFoodAPI(APIView):
     def get(self, request):

@@ -32,6 +32,7 @@ Click the name of API for more details.
 | [Favourite Foods](#favourite-foods)         | `GET`  | `/favourite-foods/` |
 | [POST Favourite Food](#post-favourite-food) | `POST` | `/favourite-foods/` |
 | [Blacklist Foods](#blacklist-foods)         | `GET`  | `/blacklist-foods/` |
+| [POST Blacklist Food](#post-blacklist-food) | `POST` | `/blacklist-foods/` |
 | [Next Food](#next-food)                     | `GET`  | `/next-food/`       |
 | [POST Food](#post-food)                     | `POST` | `/food/`            |
 
@@ -45,6 +46,7 @@ Click the name of API for more details.
 | [Favourite Restaurants](#favourite-restaurants)         | `GET`  | `/favourite-restaurants/` |
 | [POST Favourite Restaurant](#post-favourite-restaurant) | `POST` | `/favourite-restaurants/` |
 | [Blacklist Restaurants](#blacklist-restaurants)         | `GET`  | `/blacklist-restaurants/` |
+| [POST Blacklist Restaurant](#post-blacklist-restaurant) | `POST` | `/blacklist-restaurants/` |
 | [Next Restaurant](#next-restaurant)                     | `GET`  | `/next-restaurant/`       |
 | [POST Restaurant](#post-restaurant)                     | `POST` | `/restaurant/`            |
 
@@ -467,6 +469,102 @@ Click the name of API for more details.
 
 ---
 
+## POST Blacklist Food
+
+<br>
+
+> Add food into your blacklist.
+
+<br>
+
+- Request example:
+
+  ```json
+  {
+    "foodId": 2
+  }
+  ```
+
+- Response example:
+
+  ```json
+  {
+    "username": "user003",
+    "blacklistFood": [
+      {
+        "id": 2,
+        "name": "taiyaki đậu đỏ",
+        "image": "/media/fallback.png",
+        "description": "bánh cá Nhật Bản nhân đậu đỏ",
+        "address": "",
+        "recipe": "",
+        "tags": [
+          {
+            "id": 2,
+            "name": "ăn vặt",
+            "description": "",
+            "verified": true
+          }
+        ],
+        "ingredients": [
+          {
+            "id": 1,
+            "name": "bột mì",
+            "description": "",
+            "verified": true
+          },
+          {
+            "id": 3,
+            "name": "đậu đỏ",
+            "description": "",
+            "verified": true
+          }
+        ],
+        "verified": true
+      },
+      {
+        "id": 3,
+        "name": "bánh rán",
+        "image": "/media/images/foods/how.jpg",
+        "description": "bánh rán nhân đỗ xanh tẩm đường giòn ngon nhưng ăn nhiều thì béo",
+        "address": "",
+        "recipe": "",
+        "tags": [
+          {
+            "id": 2,
+            "name": "ăn vặt",
+            "description": "",
+            "verified": true
+          }
+        ],
+        "ingredients": [
+          {
+            "id": 2,
+            "name": "bột nếp",
+            "description": "",
+            "verified": true
+          }
+        ],
+        "verified": true
+      }
+    ]
+  }
+  ```
+
+- _Anonymous User_ Response:
+
+  ```json
+  {
+    "detail": "You must sign in to have your favourite foods listed."
+  }
+  ```
+
+<br>
+
+[^](#api-list)
+
+---
+
 ## Next Food
 
 <br>
@@ -768,6 +866,75 @@ Click the name of API for more details.
   {
     "username": "user003",
     "blacklistRestaurant": [
+      {
+        "id": 36,
+        "name": "phở có hành?",
+        "image": "/media/fallback.png",
+        "description": "thêm vào để blacklist",
+        "address": "",
+        "menu": "",
+        "note": "hành ~~ rất nhiều hành",
+        "tags": [],
+        "verified": true
+      }
+    ]
+  }
+  ```
+
+- _Anonymous User_ Response:
+
+  ```json
+  {
+    "detail": "You must sign in to blacklist restaurants."
+  }
+  ```
+
+<br>
+
+[^](#api-list)
+
+---
+
+## POST Blacklist Restaurant
+
+<br>
+
+> Add restaurant into your blacklist.
+
+<br>
+
+- Request example:
+
+  ```json
+  {
+    "restaurantId": 35
+  }
+  ```
+
+- Response example:
+
+  ```json
+  {
+    "username": "user003",
+    "blacklistRestaurant": [
+      {
+        "id": 35,
+        "name": "bánh trung thu Đông Phương",
+        "image": "/media/fallback.png",
+        "description": "hiệu bánh trung thu bán chạy nhất Hải Phòng hàng năm, nguyên nhân làm tắc đường Cầu Đất mỗi tháng 8",
+        "address": "",
+        "menu": "",
+        "note": "",
+        "tags": [
+          {
+            "id": 2,
+            "name": "ăn vặt",
+            "description": "",
+            "verified": true
+          }
+        ],
+        "verified": true
+      },
       {
         "id": 36,
         "name": "phở có hành?",

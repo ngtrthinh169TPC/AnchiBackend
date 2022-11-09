@@ -63,6 +63,16 @@ class BlacklistRestaurantAPI(APIView):
         serializer = RestaurantSerializer(blacklist_restaurants, many=True)
         return Response(status=200, data={'username': request.user.username, 'blacklistRestaurant': serializer.data})
 
+    def post(self, request):
+        if (request.user.is_anonymous):
+            return Response(status=401, data={'detail': "You must sign in to blacklist restaurants."})
+        user = AnchiUser.objects.get(id=request.user.id)
+        restaurant_id = request.data.get('restaurantId')
+        restaurant = Restaurant.objects.get(id=restaurant_id)
+        user.blacklist_restaurant.add(restaurant)
+        serializer = RestaurantSerializer(user.blacklist_restaurant, many=True)
+        return Response(status=200, data={'username': request.user.username, 'blacklistRestaurant': serializer.data})
+
 
 class NextRestaurantAPI(APIView):
     def get(self, request):
