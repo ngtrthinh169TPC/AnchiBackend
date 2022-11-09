@@ -6,6 +6,14 @@ from .models import Tag
 from .serializers import TagSerializer
 
 
+class TagAPI(APIView):
+    def post(self, request):
+        serializer = TagSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        tag = serializer.save()
+        return Response(status=201, data=serializer.data)
+
+
 class AllTagsAPI(APIView):
     def get(self, request):
         tags = Tag.objects.filter(verified=True)

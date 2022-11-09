@@ -7,9 +7,9 @@ from rest_framework import routers
 
 from user.views import UserAPI, LoginAPI, LogoutAPI
 from food.views import FoodAPI, AllFoodAPI, FavouriteFoodAPI, NextFoodAPI
-from ingredient.views import AllIngredientsAPI
+from ingredient.views import IngredientAPI, AllIngredientsAPI
 from restaurant.views import RestaurantAPI, AllRestaurantAPI, FavouriteRestaurantAPI, NextRestaurantAPI
-from tag.views import AllTagsAPI
+from tag.views import TagAPI, AllTagsAPI
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -42,9 +42,11 @@ urlpatterns += [
 ]
 
 urlpatterns += [
-     path('all-tags/', AllTagsAPI.as_view(), name='all-tags')
+    path('tag/', TagAPI.as_view(), name='tag'),
+    path('all-tags/', AllTagsAPI.as_view(), name='all-tags')
 ]
 
 urlpatterns += [
-     path('all-ingredients/', AllIngredientsAPI.as_view(), name='all-ingredients')
+    path('ingredient/', IngredientAPI.as_view(), name='ingredient'),
+    path('all-ingredients/', AllIngredientsAPI.as_view(), name='all-ingredients')
 ]

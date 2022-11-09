@@ -1,6 +1,7 @@
 # AnchiBackend
 
 Backend for Anchi - A project for my school homework.
+Currently deployed [here](https://anchi-api.aqaurius6666.space/).
 
 <br>
 
@@ -26,7 +27,9 @@ Click the name of api to read more details.
 | [Next Restaurant](#next-restaurant)             | `GET`  | `/next-restaurant/`       |
 | [POST Restaurant](#post-restaurant)             | `POST` | `/restaurant/`            |
 | [All Tags](#all-tags)                           | `GET`  | `/all-tags/`              |
+| [POST Tag](#post-tag)                           | `POST` | `/tag/`                   |
 | [All Ingredients](#all-ingredients)             | `GET`  | `/all-ingredients/`       |
+| [POST Ingredient](#post-ingredient)             | `POST` | `/ingredient/`            |
 
 <br>
 
@@ -614,6 +617,39 @@ Click the name of api to read more details.
 
 ---
 
+## POST Tag
+
+<br>
+
+> Post a new Tag item to the system
+
+<br>
+
+- Request example:
+
+  ```json
+  {
+    "name": "ăn trưa"
+  }
+  ```
+
+- Response example:
+
+  ```json
+  {
+    "id": 5,
+    "name": "ăn trưa",
+    "description": "",
+    "verified": false
+  }
+  ```
+
+<br>
+
+[^](#api-list)
+
+---
+
 ## All Ingredients
 
 <br>
@@ -645,6 +681,39 @@ Click the name of api to read more details.
       "verified": true
     }
   ]
+  ```
+
+<br>
+
+[^](#api-list)
+
+---
+
+## POST Ingredient
+
+<br>
+
+> Post a new Ingredient item to the system
+
+<br>
+
+- Request example:
+
+  ```json
+  {
+    "name": "thịt heo"
+  }
+  ```
+
+- Response example:
+
+  ```json
+  {
+    "id": 4,
+    "name": "thịt heo",
+    "description": "",
+    "verified": false
+  }
   ```
 
 <br>
