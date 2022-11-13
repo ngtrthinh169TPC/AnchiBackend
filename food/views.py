@@ -43,9 +43,9 @@ class FoodAPI(APIView):
 class AllFoodAPI(APIView):
     def get(self, request):
         if (request.user.is_authenticated):
-          foods = Food.objects.filter(Q(verified=True) & ~Q(blacklist_food=request.user.id))
+            foods = Food.objects.filter(Q(verified=True) & ~Q(blacklist_food=request.user.id))
         else:
-          foods = Food.objects.filter(verified=True)
+            foods = Food.objects.filter(verified=True)
         serializer = FoodSerializer(foods, many=True)
         return Response(status=200, data=serializer.data)
 
@@ -91,9 +91,11 @@ class BlacklistFoodAPI(APIView):
 class NextFoodAPI(APIView):
     def get(self, request):
         if (request.user.is_authenticated):
-          food_list = Food.objects.filter(Q(verified=True) & ~Q(blacklist_food=request.user.id))
+            food_list = Food.objects.filter(Q(verified=True) & ~Q(blacklist_food=request.user.id))
         else:
-          food_list = Food.objects.filter(verified=True)
+            food_list = Food.objects.filter(verified=True)
+        if (food_list.__len__() == 0):
+            return Response(status=204, data={"detail": "We don't have any foods left :( come again later or try add some foods for us."})
         seed = random.randint(0, food_list.__len__() - 1)
         serializer = FoodSerializer(food_list[seed])
         return Response(status=200, data={'nextFood': serializer.data})
