@@ -42,7 +42,10 @@ class FoodAPI(APIView):
 
 class AllFoodAPI(APIView):
     def get(self, request):
-        foods = Food.objects.filter(Q(verified=True) & ~Q(blacklist_food=request.user))
+        if (request.user.is_authenticated):
+          foods = Food.objects.filter(Q(verified=True) & ~Q(blacklist_food=request.user.id))
+        else:
+          foods = Food.objects.filter(verified=True)
         serializer = FoodSerializer(foods, many=True)
         return Response(status=200, data=serializer.data)
 

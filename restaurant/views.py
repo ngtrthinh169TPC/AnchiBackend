@@ -32,7 +32,10 @@ class RestaurantAPI(APIView):
 
 class AllRestaurantAPI(APIView):
     def get(self, request):
-        restaurants = Restaurant.objects.filter(Q(verified=True) & ~Q(blacklist_restaurant=request.user.id))
+        if (request.user.is_authenticated):
+          restaurants = Restaurant.objects.filter(Q(verified=True) & ~Q(blacklist_restaurant=request.user.id))
+        else:
+          restaurants = Restaurant.objects.filter(verified=True)
         serializer = RestaurantSerializer(restaurants, many=True)
         return Response(status=200, data=serializer.data)
 

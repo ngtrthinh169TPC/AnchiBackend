@@ -2,7 +2,7 @@
 
 Backend for Anchi - A project for my school homework.
 
-This project is currently (2022) deployed [here](https://anchi-api.aqaurius6666.space/).
+This project is currently (2022) being deployed [here](https://anchi-api.aqaurius6666.space/).
 
 <br>
 
