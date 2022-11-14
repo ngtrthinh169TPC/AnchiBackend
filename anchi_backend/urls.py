@@ -6,6 +6,7 @@ from django.urls import path
 from rest_framework import routers
 
 from user.views import UserAPI, LoginAPI, LogoutAPI
+from area.views import AreaAPI, AllAreasAPI
 from food.views import FoodAPI, AllFoodAPI, FavouriteFoodAPI, BlacklistFoodAPI, NextFoodAPI
 from ingredient.views import IngredientAPI, AllIngredientsAPI
 from restaurant.views import RestaurantAPI, AllRestaurantAPI, FavouriteRestaurantAPI, BlacklistRestaurantAPI, NextRestaurantAPI
@@ -51,4 +52,9 @@ urlpatterns += [
 urlpatterns += [
     path('ingredient/', IngredientAPI.as_view(), name='ingredient'),
     path('all-ingredients/', AllIngredientsAPI.as_view(), name='all-ingredients')
+]
+
+urlpatterns += [
+    path('area/', AreaAPI.as_view(), name='area'),
+    path('all-areas/', AllAreasAPI.as_view(), name='all-areas')
 ]

@@ -52,7 +52,7 @@ Click the name of API for more details.
 
 <br>
 
-### Tag & Ingredient APIs
+### Tag & & Area APIs
 
 | Name                                | Method | Path                |
 | ----------------------------------- | ------ | ------------------- |
@@ -60,6 +60,8 @@ Click the name of API for more details.
 | [POST Tag](#post-tag)               | `POST` | `/tag/`             |
 | [All Ingredients](#all-ingredients) | `GET`  | `/all-ingredients/` |
 | [POST Ingredient](#post-ingredient) | `POST` | `/ingredient/`      |
+| [All Areas](#all-areas)             | `GET`  | `/all-areas/`       |
+| [POST Area](#post-area)             | `POST` | `/area/`            |
 
 <br>
 
@@ -192,6 +194,7 @@ Click the name of API for more details.
           "verified": true
         }
       ],
+      "areas": [],
       "verified": true
     },
     {
@@ -223,6 +226,7 @@ Click the name of API for more details.
           "verified": true
         }
       ],
+      "areas": [],
       "verified": true
     },
     {
@@ -248,6 +252,7 @@ Click the name of API for more details.
           "verified": true
         }
       ],
+      "areas": [],
       "verified": true
     }
   ]
@@ -296,6 +301,7 @@ Click the name of API for more details.
             "verified": true
           }
         ],
+        "areas": [],
         "verified": true
       }
     ]
@@ -361,6 +367,7 @@ Click the name of API for more details.
             "verified": true
           }
         ],
+        "area": [],
         "verified": true
       },
       {
@@ -392,6 +399,7 @@ Click the name of API for more details.
             "verified": true
           }
         ],
+        "area": [],
         "verified": true
       }
     ]
@@ -449,6 +457,7 @@ Click the name of API for more details.
             "verified": true
           }
         ],
+        "area": [],
         "verified": true
       }
     ]
@@ -520,6 +529,7 @@ Click the name of API for more details.
             "verified": true
           }
         ],
+        "area": [],
         "verified": true
       },
       {
@@ -545,6 +555,7 @@ Click the name of API for more details.
             "verified": true
           }
         ],
+        "area": [],
         "verified": true
       }
     ]
@@ -600,6 +611,7 @@ Click the name of API for more details.
           "verified": true
         }
       ],
+      "area": [],
       "verified": true
     }
   }
@@ -648,6 +660,7 @@ Click the name of API for more details.
       }
     ],
     "ingredients": [],
+    "area": [],
     "verified": false
   }
   ```
@@ -692,6 +705,7 @@ Click the name of API for more details.
           "verified": true
         }
       ],
+      "area": [],
       "verified": true
     },
     {
@@ -710,6 +724,7 @@ Click the name of API for more details.
           "verified": true
         }
       ],
+      "area": [],
       "verified": true
     }
   ]
@@ -757,6 +772,7 @@ Click the name of API for more details.
             "verified": true
           }
         ],
+        "area": [],
         "verified": true
       }
     ]
@@ -821,6 +837,7 @@ Click the name of API for more details.
             "verified": true
           }
         ],
+        "area": [],
         "verified": true
       },
       {
@@ -832,6 +849,7 @@ Click the name of API for more details.
         "menu": "",
         "note": "hành ~~ rất nhiều hành",
         "tags": [],
+        "area": [],
         "verified": true
       }
     ]
@@ -875,6 +893,7 @@ Click the name of API for more details.
         "menu": "",
         "note": "hành ~~ rất nhiều hành",
         "tags": [],
+        "area": [],
         "verified": true
       }
     ]
@@ -933,6 +952,7 @@ Click the name of API for more details.
             "verified": true
           }
         ],
+        "area": [],
         "verified": true
       },
       {
@@ -944,6 +964,7 @@ Click the name of API for more details.
         "menu": "",
         "note": "hành ~~ rất nhiều hành",
         "tags": [],
+        "area": [],
         "verified": true
       }
     ]
@@ -992,6 +1013,7 @@ Click the name of API for more details.
           "verified": true
         }
       ],
+      "area": [],
       "verified": true
     }
   }
@@ -1040,6 +1062,7 @@ Click the name of API for more details.
         "verified": true
       }
     ],
+    "area": [],
     "verified": true
   }
   ```
@@ -1177,6 +1200,66 @@ Click the name of API for more details.
   {
     "id": 4,
     "name": "thịt heo",
+    "description": "",
+    "verified": false
+  }
+  ```
+
+<br>
+
+[^](#api-list)
+
+---
+
+## All Areas
+
+<br>
+
+> Get a list of all of the areas from database
+
+<br>
+
+- Response example:
+
+  ```json
+  [
+    {
+      "id": 1,
+      "name": "ĐHQG - ĐHSP",
+      "description": "",
+      "verified": true
+    }
+  ]
+  ```
+
+<br>
+
+[^](#api-list)
+
+---
+
+## POST Area
+
+<br>
+
+> Post a new Area item to the system
+
+<br>
+
+- Request example:
+
+  ```json
+  {
+    "name": "Nghĩa Tân - Cầu Giấy"
+  }
+  ```
+
+- Response example:
+
+  ```json
+  {
+    "id": 2,
+    "name": "Nghĩa Tân - Cầu Giấy",
     "description": "",
     "verified": false
   }
