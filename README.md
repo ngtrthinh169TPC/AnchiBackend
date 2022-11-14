@@ -52,7 +52,7 @@ Click the name of API for more details.
 
 <br>
 
-### Tag & & Area APIs
+### Tag & Ingredient & Area APIs
 
 | Name                                | Method | Path                |
 | ----------------------------------- | ------ | ------------------- |
@@ -617,6 +617,14 @@ Click the name of API for more details.
   }
   ```
 
+- Response _not found_:
+
+  ```json
+  {
+    "detail": "We don't have any foods left :( come again later or try add some foods for us."
+  }
+  ```
+
 <br>
 
 [^](#api-list)
@@ -1016,6 +1024,14 @@ Click the name of API for more details.
       "area": [],
       "verified": true
     }
+  }
+  ```
+
+- Response _not found_:
+
+  ```json
+  {
+    "detail": "We don't have any food restaurants left :( come again later or try add some restaurants for us."
   }
   ```
 
