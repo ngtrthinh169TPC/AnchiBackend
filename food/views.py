@@ -130,6 +130,9 @@ class NextFoodAPI(APIView):
             food_list = Food.objects.filter(Q(verified=True) & ~Q(blacklist_food=request.user.id))
         else:
             food_list = Food.objects.filter(verified=True)
+        last_food = request.data.get('lastFood')
+        if last_food is not None:
+            food_list = food_list.exclude(id=last_food)
         if (food_list.__len__() == 0):
             return Response(status=204, data={"detail": "We don't have any foods left :( come again later or try add some foods for us."})
         seed = random.randint(0, food_list.__len__() - 1)

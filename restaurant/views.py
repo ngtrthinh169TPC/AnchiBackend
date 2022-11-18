@@ -120,6 +120,9 @@ class NextRestaurantAPI(APIView):
             restaurant_list = Restaurant.objects.filter(Q(verified=True) & ~Q(blacklist_restaurant=request.user.id))
         else:
             restaurant_list = Restaurant.objects.filter(verified=True)
+        last_restaurant = request.data.get('lastRestaurant')
+        if last_restaurant is not None:
+            restaurant_list = restaurant_list.exclude(id=last_restaurant)
         if (restaurant_list.__len__() == 0):
             return Response(status=204, data={"detail": "We don't have any restaurants left :( come again later or try add some restaurants for us."})
         seed = random.randint(0, restaurant_list.__len__() - 1)

@@ -777,6 +777,16 @@ Click the name of API for more details.
 
 <br>
 
+- Request body can be null.
+
+- Request example
+
+  ```json
+  {
+    "lastFood": 2
+  }
+  ```
+
 - Response example:
 
   ```json
@@ -1342,6 +1352,16 @@ Click the name of API for more details.
 > Get a random restaurant from database
 
 <br>
+
+- Request body can be null.
+
+- Request example
+
+  ```json
+  {
+    "lastRestaurant": 2
+  }
+  ```
 
 - Response example:
 
