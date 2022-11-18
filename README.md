@@ -418,6 +418,30 @@ Click the name of API for more details.
   }
   ```
 
+- _Food id not found_ Response:
+
+  ```json
+  {
+    "detail": "Provided food is not found at food_id 7"
+  }
+  ```
+
+- _Food not found_ Response:
+
+  ```json
+  {
+    "detail": "You must provide a food in order add to your favourite list"
+  }
+  ```
+
+- _Not AnchiUser_ Response:
+
+  ```json
+  {
+    "detail": "Invalid user credentials."
+  }
+  ```
+
 <br>
 
 [^](#food-apis)
@@ -522,6 +546,14 @@ Click the name of API for more details.
   ```json
   {
     "detail": "You must provide a list to update your favourite foods"
+  }
+  ```
+
+- _Not AnchiUser_ Response:
+
+  ```json
+  {
+    "detail": "Invalid user credentials."
   }
   ```
 
@@ -681,6 +713,30 @@ Click the name of API for more details.
   }
   ```
 
+- _Food id not found_ Response:
+
+  ```json
+  {
+    "detail": "Provided food is not found at food_id 7"
+  }
+  ```
+
+- _Food not found_ Response:
+
+  ```json
+  {
+    "detail": "You must provide a food in order add to your blacklist"
+  }
+  ```
+
+- _Not AnchiUser_ Response:
+
+  ```json
+  {
+    "detail": "Invalid user credentials."
+  }
+  ```
+
 <br>
 
 [^](#food-apis)
@@ -760,6 +816,14 @@ Click the name of API for more details.
   ```json
   {
     "detail": "You must provide a list to update your blacklist foods"
+  }
+  ```
+
+- _Not AnchiUser_ Response:
+
+  ```json
+  {
+    "detail": "Invalid user credentials."
   }
   ```
 
@@ -1075,6 +1139,30 @@ Click the name of API for more details.
   }
   ```
 
+- _Restaurant id not found_ Response:
+
+  ```json
+  {
+    "detail": "Provided restaurant is not found at restaurant_id 6"
+  }
+  ```
+
+- _Restaurant not found_ Response:
+
+  ```json
+  {
+    "detail": "You must provide a restaurant in order add to your favourite list"
+  }
+  ```
+
+- _Not AnchiUser_ Response:
+
+  ```json
+  {
+    "detail": "Invalid user credentials."
+  }
+  ```
+
 <br>
 
 [^](#restaurant-apis)
@@ -1153,6 +1241,14 @@ Click the name of API for more details.
   ```json
   {
     "detail": "You must provide a list to update your favourite restaurants"
+  }
+  ```
+
+- _Not AnchiUser_ Response:
+
+  ```json
+  {
+    "detail": "Invalid user credentials."
   }
   ```
 
@@ -1271,6 +1367,30 @@ Click the name of API for more details.
   }
   ```
 
+- _Restaurant id not found_ Response:
+
+  ```json
+  {
+    "detail": "Provided restaurant is not found at restaurant_id 6"
+  }
+  ```
+
+- _Restaurant not found_ Response:
+
+  ```json
+  {
+    "detail": "You must provide a restaurant in order add to your blacklist"
+  }
+  ```
+
+- _Not AnchiUser_ Response:
+
+  ```json
+  {
+    "detail": "Invalid user credentials."
+  }
+  ```
+
 <br>
 
 [^](#restaurant-apis)
@@ -1336,6 +1456,14 @@ Click the name of API for more details.
   ```json
   {
     "detail": "You must provide a list to update your blacklist restaurants"
+  }
+  ```
+
+- _Not AnchiUser_ Response:
+
+  ```json
+  {
+    "detail": "Invalid user credentials."
   }
   ```
 
@@ -1648,3 +1776,7 @@ Click the name of API for more details.
 [^](#tag--ingredient--area-apis)
 
 ---
+
+```
+
+```
