@@ -46,7 +46,7 @@ class FavouriteRestaurantAPI(APIView):
             return Response(status=401, data={'detail': "You must sign in to have your favourite restaurants listed."})
         favourite_restaurants = Restaurant.objects.filter(Q(verified=True) & Q(favourite_restaurant=request.user.id))
         serializer = RestaurantSerializer(favourite_restaurants, many=True)
-        return Response(status=200, data={'username': request.user.username, 'favouriteRestaurant': serializer.data})
+        return Response(status=200, data={'username': request.user.username, 'favouriteRestaurants': serializer.data})
 
     def post(self, request):
         if (request.user.is_anonymous):
@@ -56,7 +56,25 @@ class FavouriteRestaurantAPI(APIView):
         restaurant = Restaurant.objects.get(id=restaurant_id)
         user.favourite_restaurant.add(restaurant)
         serializer = RestaurantSerializer(user.favourite_restaurant, many=True)
-        return Response(status=200, data={'username': request.user.username, 'favouriteRestaurant': serializer.data})
+        return Response(status=200, data={'username': request.user.username, 'favouriteRestaurants': serializer.data})
+
+    def patch(self, request):
+        if (request.user.is_anonymous):
+            return Response(status=401, data={'detail': "You must sign in to have your favourite restaurants listed."})
+        user = AnchiUser.objects.get(id=request.user.id)
+        new_restaurants_list = request.data.get('favouriteRestaurants')
+        if new_restaurants_list is None:
+            return Response(status=404, data={"detail": "You must provide a list to update your favourite restaurants"})
+        restaurants = []
+        for restaurant_id in new_restaurants_list:
+            try:
+                restaurant = Restaurant.objects.get(id=restaurant_id)
+                restaurants.append(restaurant)
+            except Restaurant.DoesNotExist:
+                return Response(status=404, data={"detail": "Provided restaurant is not found at restaurant_id " + str(restaurant_id)})
+        user.favourite_restaurant.set(restaurants)
+        serializer = RestaurantSerializer(user.favourite_restaurant, many=True)
+        return Response(status=200, data={'username': request.user.username, 'favouriteRestaurants': serializer.data})
 
 
 class BlacklistRestaurantAPI(APIView):
@@ -65,7 +83,7 @@ class BlacklistRestaurantAPI(APIView):
             return Response(status=401, data={'detail': "You must sign in to blacklist restaurants."})
         blacklist_restaurants = Restaurant.objects.filter(Q(verified=True) & Q(blacklist_restaurant=request.user.id))
         serializer = RestaurantSerializer(blacklist_restaurants, many=True)
-        return Response(status=200, data={'username': request.user.username, 'blacklistRestaurant': serializer.data})
+        return Response(status=200, data={'username': request.user.username, 'blacklistRestaurants': serializer.data})
 
     def post(self, request):
         if (request.user.is_anonymous):
@@ -75,7 +93,25 @@ class BlacklistRestaurantAPI(APIView):
         restaurant = Restaurant.objects.get(id=restaurant_id)
         user.blacklist_restaurant.add(restaurant)
         serializer = RestaurantSerializer(user.blacklist_restaurant, many=True)
-        return Response(status=200, data={'username': request.user.username, 'blacklistRestaurant': serializer.data})
+        return Response(status=200, data={'username': request.user.username, 'blacklistRestaurants': serializer.data})
+
+    def patch(self, request):
+        if (request.user.is_anonymous):
+            return Response(status=401, data={'detail': "You must sign in to have your blacklist restaurants listed."})
+        user = AnchiUser.objects.get(id=request.user.id)
+        new_restaurants_list = request.data.get('blacklistRestaurants')
+        if new_restaurants_list is None:
+            return Response(status=404, data={"detail": "You must provide a list to update your blacklist restaurants"})
+        restaurants = []
+        for restaurant_id in new_restaurants_list:
+            try:
+                restaurant = Restaurant.objects.get(id=restaurant_id)
+                restaurants.append(restaurant)
+            except Restaurant.DoesNotExist:
+                return Response(status=404, data={"detail": "Provided restaurant is not found at restaurant_id " + str(restaurant_id)})
+        user.blacklist_restaurant.set(restaurants)
+        serializer = RestaurantSerializer(user.blacklist_restaurant, many=True)
+        return Response(status=200, data={'username': request.user.username, 'blacklistRestaurants': serializer.data})
 
 
 class NextRestaurantAPI(APIView):
@@ -85,7 +121,7 @@ class NextRestaurantAPI(APIView):
         else:
             restaurant_list = Restaurant.objects.filter(verified=True)
         if (restaurant_list.__len__() == 0):
-            return Response(status=204, data={"detail": "We don't have any food restaurants left :( come again later or try add some restaurants for us."})
+            return Response(status=204, data={"detail": "We don't have any restaurants left :( come again later or try add some restaurants for us."})
         seed = random.randint(0, restaurant_list.__len__() - 1)
         serializer = RestaurantSerializer(restaurant_list[seed])
         return Response(status=200, data={'nextRestaurant': serializer.data})

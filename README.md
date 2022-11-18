@@ -26,29 +26,33 @@ Click the name of API for more details.
 
 ### Food APIs
 
-| Name                                        | Method | Path                |
-| ------------------------------------------- | ------ | ------------------- |
-| [All Foods](#all-foods)                     | `GET`  | `/all-foods/`       |
-| [Favourite Foods](#favourite-foods)         | `GET`  | `/favourite-foods/` |
-| [POST Favourite Food](#post-favourite-food) | `POST` | `/favourite-foods/` |
-| [Blacklist Foods](#blacklist-foods)         | `GET`  | `/blacklist-foods/` |
-| [POST Blacklist Food](#post-blacklist-food) | `POST` | `/blacklist-foods/` |
-| [Next Food](#next-food)                     | `GET`  | `/next-food/`       |
-| [POST Food](#post-food)                     | `POST` | `/food/`            |
+| Name                                            | Method  | Path                |
+| ----------------------------------------------- | ------- | ------------------- |
+| [All Foods](#all-foods)                         | `GET`   | `/all-foods/`       |
+| [GET Favourite Foods](#get-favourite-foods)     | `GET`   | `/favourite-foods/` |
+| [POST Favourite Food](#post-favourite-food)     | `POST`  | `/favourite-foods/` |
+| [PATCH Favourite Foods](#patch-favourite-foods) | `PATCH` | `/favourite-foods/` |
+| [GET Blacklist Foods](#get-blacklist-foods)     | `GET`   | `/blacklist-foods/` |
+| [POST Blacklist Food](#post-blacklist-food)     | `POST`  | `/blacklist-foods/` |
+| [PATCH Blacklist Foods](#patch-blacklist-foods) | `PATCH` | `/blacklist-foods/` |
+| [Next Food](#next-food)                         | `GET`   | `/next-food/`       |
+| [POST Food](#post-food)                         | `POST`  | `/food/`            |
 
 <br>
 
 ### Restaurant APIs
 
-| Name                                                    | Method | Path                      |
-| ------------------------------------------------------- | ------ | ------------------------- |
-| [All Restaurants](#all-restaurants)                     | `GET`  | `/all-restaurants/`       |
-| [Favourite Restaurants](#favourite-restaurants)         | `GET`  | `/favourite-restaurants/` |
-| [POST Favourite Restaurant](#post-favourite-restaurant) | `POST` | `/favourite-restaurants/` |
-| [Blacklist Restaurants](#blacklist-restaurants)         | `GET`  | `/blacklist-restaurants/` |
-| [POST Blacklist Restaurant](#post-blacklist-restaurant) | `POST` | `/blacklist-restaurants/` |
-| [Next Restaurant](#next-restaurant)                     | `GET`  | `/next-restaurant/`       |
-| [POST Restaurant](#post-restaurant)                     | `POST` | `/restaurant/`            |
+| Name                                                        | Method  | Path                      |
+| ----------------------------------------------------------- | ------- | ------------------------- |
+| [All Restaurants](#all-restaurants)                         | `GET`   | `/all-restaurants/`       |
+| [GET Favourite Restaurants](#get-favourite-restaurants)     | `GET`   | `/favourite-restaurants/` |
+| [POST Favourite Restaurant](#post-favourite-restaurant)     | `POST`  | `/favourite-restaurants/` |
+| [PATCH Favourite Restaurants](#patch-favourite-restaurants) | `PATCH` | `/favourite-restaurants/` |
+| [GET Blacklist Restaurants](#get-blacklist-restaurants)     | `GET`   | `/blacklist-restaurants/` |
+| [POST Blacklist Restaurant](#post-blacklist-restaurant)     | `POST`  | `/blacklist-restaurants/` |
+| [PATCH Blacklist Restaurants](#patch-blacklist-restaurants) | `PATCH` | `/blacklist-restaurants/` |
+| [Next Restaurant](#next-restaurant)                         | `GET`   | `/next-restaurant/`       |
+| [POST Restaurant](#post-restaurant)                         | `POST`  | `/restaurant/`            |
 
 <br>
 
@@ -94,7 +98,7 @@ Click the name of API for more details.
 
 <br>
 
-[^](#api-list)
+[^](#user-apis)
 
 ---
 
@@ -133,7 +137,7 @@ Click the name of API for more details.
 
 <br>
 
-[^](#api-list)
+[^](#user-apis)
 
 ---
 
@@ -155,7 +159,7 @@ Click the name of API for more details.
 
 <br>
 
-[^](#api-list)
+[^](#user-apis)
 
 ---
 
@@ -260,11 +264,11 @@ Click the name of API for more details.
 
 <br>
 
-[^](#api-list)
+[^](#food-apis)
 
 ---
 
-## Favourite Foods
+## GET Favourite Foods
 
 <br>
 
@@ -277,7 +281,7 @@ Click the name of API for more details.
   ```json
   {
     "username": "user003",
-    "favouriteFood": [
+    "favouriteFoods": [
       {
         "id": 1,
         "name": "bánh mì",
@@ -318,7 +322,7 @@ Click the name of API for more details.
 
 <br>
 
-[^](#api-list)
+[^](#food-apis)
 
 ---
 
@@ -343,7 +347,7 @@ Click the name of API for more details.
   ```json
   {
     "username": "user003",
-    "favouriteFood": [
+    "favouriteFoods": [
       {
         "id": 1,
         "name": "bánh mì",
@@ -416,11 +420,118 @@ Click the name of API for more details.
 
 <br>
 
-[^](#api-list)
+[^](#food-apis)
 
 ---
 
-## Blacklist Foods
+## PATCH Favourite Foods
+
+<br>
+
+> Edit your favourite food list.
+
+<br>
+
+- Request example:
+
+  ```json
+  {
+    "favouriteFoods": [2, 6]
+  }
+  ```
+
+- Response example:
+
+  ```json
+  {
+    "username": "user002",
+    "favouriteFoods": [
+      {
+        "id": 2,
+        "name": "taiyaki đậu đỏ",
+        "image": "/media/fallback.png",
+        "description": "bánh cá Nhật Bản nhân đậu đỏ",
+        "address": "",
+        "recipe": "",
+        "tags": [
+          {
+            "id": 2,
+            "name": "ăn vặt",
+            "description": "",
+            "verified": true
+          }
+        ],
+        "ingredients": [
+          {
+            "id": 1,
+            "name": "bột mì",
+            "description": "",
+            "verified": true
+          },
+          {
+            "id": 3,
+            "name": "đậu đỏ",
+            "description": "",
+            "verified": true
+          }
+        ],
+        "areas": [],
+        "verified": true
+      },
+      {
+        "id": 6,
+        "name": "bánh nướng",
+        "image": "/media/fallback.png",
+        "description": "nhân thập cẩm là số 1, nhân đậu xanh là tà đạo",
+        "address": "",
+        "recipe": "",
+        "tags": [
+          {
+            "id": 2,
+            "name": "ăn vặt",
+            "description": "",
+            "verified": true
+          }
+        ],
+        "ingredients": [],
+        "areas": [],
+        "verified": true
+      }
+    ]
+  }
+  ```
+
+- _Anonymous User_ Response:
+
+  ```json
+  {
+    "detail": "You must sign in to have your favourite foods listed."
+  }
+  ```
+
+- _Food id not found_ Response:
+
+  ```json
+  {
+    "detail": "Provided food is not found at food_id 7"
+  }
+  ```
+
+- _List not found_ Response:
+
+  ```json
+  {
+    "detail": "You must provide a list to update your favourite foods"
+  }
+  ```
+
+<br>
+
+[^](#food-apis)
+
+---
+
+## GET Blacklist Foods
 
 <br>
 
@@ -433,7 +544,7 @@ Click the name of API for more details.
   ```json
   {
     "username": "user003",
-    "blacklistFood": [
+    "blacklistFoods": [
       {
         "id": 3,
         "name": "bánh rán",
@@ -474,7 +585,7 @@ Click the name of API for more details.
 
 <br>
 
-[^](#api-list)
+[^](#food-apis)
 
 ---
 
@@ -499,7 +610,7 @@ Click the name of API for more details.
   ```json
   {
     "username": "user003",
-    "blacklistFood": [
+    "blacklistFoods": [
       {
         "id": 2,
         "name": "taiyaki đậu đỏ",
@@ -566,13 +677,95 @@ Click the name of API for more details.
 
   ```json
   {
-    "detail": "You must sign in to have your favourite foods listed."
+    "detail": "You must sign in to blacklist foods."
   }
   ```
 
 <br>
 
-[^](#api-list)
+[^](#food-apis)
+
+---
+
+## PATCH Blacklist Foods
+
+<br>
+
+> Edit your food blacklist.
+
+<br>
+
+- Request example:
+
+  ```json
+  {
+    "blacklistFoods": [3]
+  }
+  ```
+
+- Response example:
+
+  ```json
+  {
+    "username": "user002",
+    "blacklistFoods": [
+      {
+        "id": 3,
+        "name": "bánh rán",
+        "image": "/media/images/foods/how.jpg",
+        "description": "bánh rán nhân đỗ xanh tẩm đường giòn ngon nhưng ăn nhiều thì béo",
+        "address": "",
+        "recipe": "",
+        "tags": [
+          {
+            "id": 2,
+            "name": "ăn vặt",
+            "description": "",
+            "verified": true
+          }
+        ],
+        "ingredients": [
+          {
+            "id": 2,
+            "name": "bột nếp",
+            "description": "",
+            "verified": true
+          }
+        ],
+        "areas": [],
+        "verified": true
+      }
+    ]
+  }
+  ```
+
+- _Anonymous User_ Response:
+
+  ```json
+  {
+    "detail": "You must sign in to blacklist foods."
+  }
+  ```
+
+- _Food id not found_ Response:
+
+  ```json
+  {
+    "detail": "Provided food is not found at food_id 7"
+  }
+  ```
+
+- _List not found_ Response:
+
+  ```json
+  {
+    "detail": "You must provide a list to update your blacklist foods"
+  }
+  ```
+
+<br>
+
+[^](#food-apis)
 
 ---
 
@@ -627,7 +820,7 @@ Click the name of API for more details.
 
 <br>
 
-[^](#api-list)
+[^](#food-apis)
 
 ---
 
@@ -675,7 +868,7 @@ Click the name of API for more details.
 
 <br>
 
-[^](#api-list)
+[^](#food-apis)
 
 ---
 
@@ -740,11 +933,11 @@ Click the name of API for more details.
 
 <br>
 
-[^](#api-list)
+[^](#restaurant-apis)
 
 ---
 
-## Favourite Restaurants
+## GET Favourite Restaurants
 
 <br>
 
@@ -757,7 +950,7 @@ Click the name of API for more details.
   ```json
   {
     "username": "user003",
-    "favouriteRestaurant": [
+    "favouriteRestaurants": [
       {
         "id": 1,
         "name": "tiem banh mi",
@@ -797,7 +990,7 @@ Click the name of API for more details.
 
 <br>
 
-[^](#api-list)
+[^](#restaurant-apis)
 
 ---
 
@@ -822,7 +1015,7 @@ Click the name of API for more details.
   ```json
   {
     "username": "user003",
-    "favouriteRestaurant": [
+    "favouriteRestaurants": [
       {
         "id": 1,
         "name": "tiem banh mi",
@@ -874,11 +1067,92 @@ Click the name of API for more details.
 
 <br>
 
-[^](#api-list)
+[^](#restaurant-apis)
 
 ---
 
-## Blacklist Restaurants
+## PATCH Favourite Restaurants
+
+<br>
+
+> Edit your favourite restaurant list.
+
+<br>
+
+- Request example:
+
+  ```json
+  {
+    "favouriteRestaurants": [1]
+  }
+  ```
+
+- Response example:
+
+  ```json
+  {
+    "username": "user002",
+    "favouriteRestaurants": [
+      {
+        "id": 1,
+        "name": "tiem banh mi",
+        "image": "/media/fallback.png",
+        "description": "",
+        "address": "tiem banh mi",
+        "menu": "banh mi",
+        "note": "banh mi",
+        "tags": [
+          {
+            "id": 1,
+            "name": "ăn sáng",
+            "description": "",
+            "verified": true
+          },
+          {
+            "id": 2,
+            "name": "ăn vặt",
+            "description": "",
+            "verified": true
+          }
+        ],
+        "areas": [],
+        "verified": true
+      }
+    ]
+  }
+  ```
+
+- _Anonymous User_ Response:
+
+  ```json
+  {
+    "detail": "You must sign in to have your favourite restaurants listed."
+  }
+  ```
+
+- _Restaurant id not found_ Response:
+
+  ```json
+  {
+    "detail": "Provided restaurant is not found at restaurant_id 3"
+  }
+  ```
+
+- _List not found_ Response:
+
+  ```json
+  {
+    "detail": "You must provide a list to update your favourite restaurants"
+  }
+  ```
+
+<br>
+
+[^](#restaurant-apis)
+
+---
+
+## GET Blacklist Restaurants
 
 <br>
 
@@ -891,7 +1165,7 @@ Click the name of API for more details.
   ```json
   {
     "username": "user003",
-    "blacklistRestaurant": [
+    "blacklistRestaurants": [
       {
         "id": 36,
         "name": "phở có hành?",
@@ -918,7 +1192,7 @@ Click the name of API for more details.
 
 <br>
 
-[^](#api-list)
+[^](#restaurant-apis)
 
 ---
 
@@ -943,7 +1217,7 @@ Click the name of API for more details.
   ```json
   {
     "username": "user003",
-    "blacklistRestaurant": [
+    "blacklistRestaurants": [
       {
         "id": 35,
         "name": "bánh trung thu Đông Phương",
@@ -989,7 +1263,75 @@ Click the name of API for more details.
 
 <br>
 
-[^](#api-list)
+[^](#restaurant-apis)
+
+---
+
+## PATCH Blacklist Restaurants
+
+<br>
+
+> Edit your restaurant blacklist.
+
+<br>
+
+- Request example:
+
+  ```json
+  {
+    "blacklistRestaurants": [36]
+  }
+  ```
+
+- Response example:
+
+  ```json
+  {
+    "username": "user002",
+    "blacklistRestaurants": [
+      {
+        "id": 36,
+        "name": "phở có hành?",
+        "image": "/media/fallback.png",
+        "description": "thêm vào để blacklist",
+        "address": "",
+        "menu": "",
+        "note": "hành ~~ rất nhiều hành",
+        "tags": [],
+        "areas": [],
+        "verified": true
+      }
+    ]
+  }
+  ```
+
+- _Anonymous User_ Response:
+
+  ```json
+  {
+    "detail": "You must sign in to have your blacklist restaurants listed."
+  }
+  ```
+
+- _Restaurant id not found_ Response:
+
+  ```json
+  {
+    "detail": "Provided restaurant is not found at restaurant_id 6"
+  }
+  ```
+
+- _List not found_ Response:
+
+  ```json
+  {
+    "detail": "You must provide a list to update your blacklist restaurants"
+  }
+  ```
+
+<br>
+
+[^](#restaurant-apis)
 
 ---
 
@@ -1037,7 +1379,7 @@ Click the name of API for more details.
 
 <br>
 
-[^](#api-list)
+[^](#restaurant-apis)
 
 ---
 
@@ -1085,7 +1427,7 @@ Click the name of API for more details.
 
 <br>
 
-[^](#api-list)
+[^](#restaurant-apis)
 
 ---
 
@@ -1118,7 +1460,7 @@ Click the name of API for more details.
 
 <br>
 
-[^](#api-list)
+[^](#tag--ingredient--area-apis)
 
 ---
 
@@ -1151,7 +1493,7 @@ Click the name of API for more details.
 
 <br>
 
-[^](#api-list)
+[^](#tag--ingredient--area-apis)
 
 ---
 
@@ -1190,7 +1532,7 @@ Click the name of API for more details.
 
 <br>
 
-[^](#api-list)
+[^](#tag--ingredient--area-apis)
 
 ---
 
@@ -1223,7 +1565,7 @@ Click the name of API for more details.
 
 <br>
 
-[^](#api-list)
+[^](#tag--ingredient--area-apis)
 
 ---
 
@@ -1250,7 +1592,7 @@ Click the name of API for more details.
 
 <br>
 
-[^](#api-list)
+[^](#tag--ingredient--area-apis)
 
 ---
 
@@ -1283,6 +1625,6 @@ Click the name of API for more details.
 
 <br>
 
-[^](#api-list)
+[^](#tag--ingredient--area-apis)
 
 ---

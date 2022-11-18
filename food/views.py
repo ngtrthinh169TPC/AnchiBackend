@@ -56,7 +56,7 @@ class FavouriteFoodAPI(APIView):
             return Response(status=401, data={'detail': "You must sign in to have your favourite foods listed."})
         favourite_foods = Food.objects.filter(Q(verified=True) & Q(favourite_food=request.user.id))
         serializer = FoodSerializer(favourite_foods, many=True)
-        return Response(status=200, data={'username': request.user.username, 'favouriteFood': serializer.data})
+        return Response(status=200, data={'username': request.user.username, 'favouriteFoods': serializer.data})
 
     def post(self, request):
         if (request.user.is_anonymous):
@@ -66,7 +66,25 @@ class FavouriteFoodAPI(APIView):
         food = Food.objects.get(id=food_id)
         user.favourite_food.add(food)
         serializer = FoodSerializer(user.favourite_food, many=True)
-        return Response(status=200, data={'username': request.user.username, 'favouriteFood': serializer.data})
+        return Response(status=200, data={'username': request.user.username, 'favouriteFoods': serializer.data})
+
+    def patch(self, request):
+        if (request.user.is_anonymous):
+            return Response(status=401, data={'detail': "You must sign in to have your favourite foods listed."})
+        user = AnchiUser.objects.get(id=request.user.id)
+        new_foods_list = request.data.get('favouriteFoods')
+        if new_foods_list is None:
+            return Response(status=404, data={"detail": "You must provide a list to update your favourite foods"})
+        foods = []
+        for food_id in new_foods_list:
+            try:
+                food = Food.objects.get(id=food_id)
+                foods.append(food)
+            except Food.DoesNotExist:
+                return Response(status=404, data={"detail": "Provided food is not found at food_id " + str(food_id)})
+        user.favourite_food.set(foods)
+        serializer = FoodSerializer(user.favourite_food, many=True)
+        return Response(status=200, data={'username': request.user.username, 'favouriteFoods': serializer.data})
 
 
 class BlacklistFoodAPI(APIView):
@@ -75,7 +93,7 @@ class BlacklistFoodAPI(APIView):
             return Response(status=401, data={'detail': "You must sign in to blacklist foods."})
         blacklist_foods = Food.objects.filter(Q(verified=True) & Q(blacklist_food=request.user.id))
         serializer = FoodSerializer(blacklist_foods, many=True)
-        return Response(status=200, data={'username': request.user.username, 'blacklistFood': serializer.data})
+        return Response(status=200, data={'username': request.user.username, 'blacklistFoods': serializer.data})
 
     def post(self, request):
         if (request.user.is_anonymous):
@@ -85,7 +103,25 @@ class BlacklistFoodAPI(APIView):
         food = Food.objects.get(id=food_id)
         user.blacklist_food.add(food)
         serializer = FoodSerializer(user.blacklist_food, many=True)
-        return Response(status=200, data={'username': request.user.username, 'blacklistFood': serializer.data})
+        return Response(status=200, data={'username': request.user.username, 'blacklistFoods': serializer.data})
+
+    def patch(self, request):
+        if (request.user.is_anonymous):
+            return Response(status=401, data={'detail': "You must sign in to have your blacklist foods listed."})
+        user = AnchiUser.objects.get(id=request.user.id)
+        new_foods_list = request.data.get('blacklistFoods')
+        if new_foods_list is None:
+            return Response(status=404, data={"detail": "You must provide a list to update your blacklist foods"})
+        foods = []
+        for food_id in new_foods_list:
+            try:
+                food = Food.objects.get(id=food_id)
+                foods.append(food)
+            except Food.DoesNotExist:
+                return Response(status=404, data={"detail": "Provided food is not found at food_id " + str(food_id)})
+        user.blacklist_food.set(foods)
+        serializer = FoodSerializer(user.blacklist_food, many=True)
+        return Response(status=200, data={'username': request.user.username, 'blacklistFoods': serializer.data})
 
 
 class NextFoodAPI(APIView):
