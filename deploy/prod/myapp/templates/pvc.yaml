@@ -1,0 +1,19 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: {{ include "myapp.fullname" . }}-media-pvc
+  labels:
+    {{- include "myapp.labels" . | nindent 4 }}
+  annotations:
+    pv.kubernetes.io/bound-by-controller: "yes"
+    volume.beta.kubernetes.io/storage-provisioner: microk8s.io/hostpath
+    volume.kubernetes.io/selected-node: ubuntu-focal-1
+    volume.kubernetes.io/storage-provisioner: microk8s.io/hostpath
+  finalizers:
+    - kubernetes.io/pvc-protection
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
