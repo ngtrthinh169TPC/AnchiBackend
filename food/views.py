@@ -1,3 +1,4 @@
+import json
 import random
 from django.db.models import Q
 from django.shortcuts import render
@@ -20,7 +21,7 @@ class FoodAPI(APIView):
         if (request.data.get('ingredients') is None):
             ingredient_list = []
         else:
-            ingredient_list = request.data.get('ingredients')
+            ingredient_list = json.loads(request.data.get('ingredients'))
         for ingredient_id in ingredient_list:
             ingredient = Ingredient.objects.get(id=ingredient_id)
             if (ingredient is None):
@@ -30,7 +31,7 @@ class FoodAPI(APIView):
         if (request.data.get('tags') is None):
             tag_list = []
         else:
-            tag_list = request.data.get('tags')
+            tag_list = json.loads(request.data.get('tags'))
         for tag_id in tag_list:
             tag = Tag.objects.get(id=tag_id)
             if (tag is None):
@@ -80,9 +81,9 @@ class FavouriteFoodAPI(APIView):
             return Response(status=401, data={'detail': "You must sign in to have your favourite foods listed."})
         try:
             user = AnchiUser.objects.get(id=request.user.id)
-            new_foods_list = request.data.get('favouriteFoods')
             if new_foods_list is None:
                 return Response(status=400, data={"detail": "You must provide a list to update your favourite foods"})
+            new_foods_list = json.loads(request.data.get('favouriteFoods'))
             foods = []
             for food_id in new_foods_list:
                 try:
@@ -127,9 +128,9 @@ class BlacklistFoodAPI(APIView):
             return Response(status=401, data={'detail': "You must sign in to have your blacklist foods listed."})
         try:
             user = AnchiUser.objects.get(id=request.user.id)
-            new_foods_list = request.data.get('blacklistFoods')
             if new_foods_list is None:
                 return Response(status=400, data={"detail": "You must provide a list to update your blacklist foods"})
+            new_foods_list = json.loads(request.data.get('blacklistFoods'))
             foods = []
             for food_id in new_foods_list:
                 try:

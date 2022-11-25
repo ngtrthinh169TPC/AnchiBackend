@@ -1,3 +1,4 @@
+import json
 import random
 from django.db.models import Q
 from django.shortcuts import render
@@ -19,7 +20,7 @@ class RestaurantAPI(APIView):
         if (request.data.get('tags') is None):
             tag_list = []
         else:
-            tag_list = request.data.get('tags')
+            tag_list = json.loads(request.data.get('tags'))
         for tag_id in tag_list:
             tag = Tag.objects.get(id=tag_id)
             if (tag is None):
@@ -70,9 +71,9 @@ class FavouriteRestaurantAPI(APIView):
             return Response(status=401, data={'detail': "You must sign in to have your favourite restaurants listed."})
         try:
             user = AnchiUser.objects.get(id=request.user.id)
-            new_restaurants_list = request.data.get('favouriteRestaurants')
             if new_restaurants_list is None:
                 return Response(status=400, data={"detail": "You must provide a list to update your favourite restaurants"})
+            new_restaurants_list = json.loads(request.data.get('favouriteRestaurants'))
             restaurants = []
             for restaurant_id in new_restaurants_list:
                 try:
@@ -117,9 +118,9 @@ class BlacklistRestaurantAPI(APIView):
             return Response(status=401, data={'detail': "You must sign in to have your blacklist restaurants listed."})
         try:
             user = AnchiUser.objects.get(id=request.user.id)
-            new_restaurants_list = request.data.get('blacklistRestaurants')
             if new_restaurants_list is None:
                 return Response(status=400, data={"detail": "You must provide a list to update your blacklist restaurants"})
+            new_restaurants_list = json.loads(request.data.get('blacklistRestaurants'))
             restaurants = []
             for restaurant_id in new_restaurants_list:
                 try:
