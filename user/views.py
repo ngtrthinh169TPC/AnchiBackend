@@ -18,10 +18,10 @@ class UserAPI(viewsets.ModelViewSet):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         user = AnchiUser.objects.create_user(username=serializer.validated_data.get(
-            'username'), password=serializer.validated_data.get('password'))
+            'username'), password=serializer.validated_data.get('password'), email=serializer.validated_data.get('email'))
         token = Token.objects.create(user=user)
         
-        return Response(status=201, data={'username': user.username, 'token': token.key})
+        return Response(status=201, data={'username': user.username, 'token': token.key, 'email': user.email})
 
 class LoginAPI(APIView):
     def post(self, request):
@@ -29,7 +29,7 @@ class LoginAPI(APIView):
         if user is not None:
             login(request, user)
             token, created = Token.objects.get_or_create(user=user)
-            return Response(status=200, data={'username': user.username, 'token': token.key})
+            return Response(status=200, data={'username': user.username, 'token': token.key, 'email': user.email})
         return Response(status=400, data={'detail': 'Invalid user credentials.'})
 
 class LogoutAPI(APIView):

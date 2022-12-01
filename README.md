@@ -84,7 +84,11 @@ Click the name of API for more details.
 - Request example:
 
   ```json
-  { "username": "Minh Huong", "password": "minhehe123" }
+  {
+    "username": "Minh Huong",
+    "password": "minhehe123",
+    "email": "khongphaimh@gmail.com"
+  }
   ```
 
 - Response example:
@@ -92,7 +96,8 @@ Click the name of API for more details.
   ```json
   {
     "username": "Minh Huong",
-    "token": "b48d7ff8fd3de7417c451156a7516fc75aecf40d"
+    "token": "b48d7ff8fd3de7417c451156a7516fc75aecf40d",
+    "email": "khongphaimh@gmail.com"
   }
   ```
 
@@ -123,7 +128,8 @@ Click the name of API for more details.
   ```json
   {
     "username": "Minh Huong",
-    "token": "b48d7ff8fd3de7417c451156a7516fc75aecf40d"
+    "token": "b48d7ff8fd3de7417c451156a7516fc75aecf40d",
+    "email": "khongphaimh@gmail.com"
   }
   ```
 
