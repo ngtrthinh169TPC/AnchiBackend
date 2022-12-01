@@ -81,9 +81,9 @@ class FavouriteFoodAPI(APIView):
             return Response(status=401, data={'detail': "You must sign in to have your favourite foods listed."})
         try:
             user = AnchiUser.objects.get(id=request.user.id)
+            new_foods_list = json.loads(request.data.get('favouriteFoods'))
             if new_foods_list is None:
                 return Response(status=400, data={"detail": "You must provide a list to update your favourite foods"})
-            new_foods_list = json.loads(request.data.get('favouriteFoods'))
             foods = []
             for food_id in new_foods_list:
                 try:
