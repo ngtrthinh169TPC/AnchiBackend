@@ -36,3 +36,15 @@ class LogoutAPI(APIView):
     def post(self, request):
         logout(request)
         return Response(status=200, data={'detail': 'Log out successfully.'})
+
+
+class ChangePasswordAPI(APIView):
+    def post(self, request):
+        user = authenticate(username=request.data.get('username'), password=request.data.get('password'))
+        if user is None:
+            return Response(status=400, data={'detail': 'Invalid user credentials.'})
+        if (request.data.get('password') == request.data.get('new_password')):
+            return Response(status=400, data={'detail': 'Your new password should be different from the old password.'})
+        user.set_password(request.data.get('new_password'))
+        user.save()
+        return Response(status=200, data={'detail': 'Your password has been changed successfully.'})

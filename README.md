@@ -16,11 +16,12 @@ Click the name of API for more details.
 
 ### User APIs
 
-| Name                      | Method | Path       |
-| ------------------------- | ------ | ---------- |
-| [Register](#register-api) | `POST` | `/user/`   |
-| [Login](#login-api)       | `POST` | `/login/`  |
-| [Logout](#logout)         | `POST` | `/logout/` |
+| Name                                | Method | Path              |
+| ----------------------------------- | ------ | ----------------- |
+| [Register](#register-api)           | `POST` | `/user/`          |
+| [Login](#login-api)                 | `POST` | `/login/`         |
+| [Logout](#logout)                   | `POST` | `/logout/`        |
+| [Change Password](#change-password) | `POST` | `change-password` |
 
 <br>
 
@@ -161,6 +162,54 @@ Click the name of API for more details.
 
   ```json
   { "detail": "Log out successfully." }
+  ```
+
+<br>
+
+[^](#user-apis)
+
+---
+
+## Change Password
+
+<br>
+
+> Change password using the old password
+
+<br>
+
+- Request example:
+
+  ```json
+  {
+    "username": "Minh Huong",
+    "password": "minhehe123",
+    "new_password": "minhehe124"
+  }
+  ```
+
+- _Change Password Successful_ Response:
+
+  ```json
+  {
+    "detail": "Your password has been changed successfully."
+  }
+  ```
+
+- _Wrong user credential_ Response:
+
+  ```json
+  {
+    "detail": "Invalid user credentials."
+  }
+  ```
+
+- _Duplicated password_ Response:
+
+  ```json
+  {
+    "detail": "Your new password should be different from the old password."
+  }
   ```
 
 <br>

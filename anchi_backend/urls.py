@@ -5,7 +5,7 @@ from django.contrib import admin
 from django.urls import path
 from rest_framework import routers
 
-from user.views import UserAPI, LoginAPI, LogoutAPI
+from user.views import UserAPI, LoginAPI, LogoutAPI, ChangePasswordAPI
 from area.views import AreaAPI, AllAreasAPI
 from food.views import FoodAPI, AllFoodAPI, FavouriteFoodAPI, BlacklistFoodAPI, NextFoodAPI
 from ingredient.views import IngredientAPI, AllIngredientsAPI
@@ -25,7 +25,8 @@ router.register(r'user', UserAPI)
 urlpatterns += [
     url('', include(router.urls)),
     path('login/', LoginAPI.as_view(), name='user-login'),
-    path('logout/', LogoutAPI.as_view(), name='user-logout')
+    path('logout/', LogoutAPI.as_view(), name='user-logout'),
+    path('change-password/', ChangePasswordAPI.as_view(), name='change-password')
 ]
 
 urlpatterns += [
