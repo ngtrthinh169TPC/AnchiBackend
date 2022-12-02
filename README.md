@@ -442,7 +442,7 @@ Click the name of API for more details.
             "verified": true
           }
         ],
-        "area": [],
+        "areas": [],
         "verified": true
       },
       {
@@ -474,7 +474,7 @@ Click the name of API for more details.
             "verified": true
           }
         ],
-        "area": [],
+        "areas": [],
         "verified": true
       }
     ]
@@ -671,7 +671,7 @@ Click the name of API for more details.
             "verified": true
           }
         ],
-        "area": [],
+        "areas": [],
         "verified": true
       }
     ]
@@ -743,7 +743,7 @@ Click the name of API for more details.
             "verified": true
           }
         ],
-        "area": [],
+        "areas": [],
         "verified": true
       },
       {
@@ -769,7 +769,7 @@ Click the name of API for more details.
             "verified": true
           }
         ],
-        "area": [],
+        "areas": [],
         "verified": true
       }
     ]
@@ -949,7 +949,7 @@ Click the name of API for more details.
           "verified": true
         }
       ],
-      "area": [],
+      "areas": [],
       "verified": true
     }
   }
@@ -1006,7 +1006,7 @@ Click the name of API for more details.
       }
     ],
     "ingredients": [],
-    "area": [],
+    "areas": [],
     "verified": false
   }
   ```
@@ -1051,7 +1051,7 @@ Click the name of API for more details.
           "verified": true
         }
       ],
-      "area": [],
+      "areas": [],
       "verified": true
     },
     {
@@ -1070,7 +1070,7 @@ Click the name of API for more details.
           "verified": true
         }
       ],
-      "area": [],
+      "areas": [],
       "verified": true
     }
   ]
@@ -1118,7 +1118,7 @@ Click the name of API for more details.
             "verified": true
           }
         ],
-        "area": [],
+        "areas": [],
         "verified": true
       }
     ]
@@ -1183,7 +1183,7 @@ Click the name of API for more details.
             "verified": true
           }
         ],
-        "area": [],
+        "areas": [],
         "verified": true
       },
       {
@@ -1195,7 +1195,7 @@ Click the name of API for more details.
         "menu": "",
         "note": "hành ~~ rất nhiều hành",
         "tags": [],
-        "area": [],
+        "areas": [],
         "verified": true
       }
     ]
@@ -1352,7 +1352,7 @@ Click the name of API for more details.
         "menu": "",
         "note": "hành ~~ rất nhiều hành",
         "tags": [],
-        "area": [],
+        "areas": [],
         "verified": true
       }
     ]
@@ -1411,7 +1411,7 @@ Click the name of API for more details.
             "verified": true
           }
         ],
-        "area": [],
+        "areas": [],
         "verified": true
       },
       {
@@ -1423,7 +1423,7 @@ Click the name of API for more details.
         "menu": "",
         "note": "hành ~~ rất nhiều hành",
         "tags": [],
-        "area": [],
+        "areas": [],
         "verified": true
       }
     ]
@@ -1582,7 +1582,7 @@ Click the name of API for more details.
           "verified": true
         }
       ],
-      "area": [],
+      "areas": [],
       "verified": true
     }
   }
@@ -1639,7 +1639,7 @@ Click the name of API for more details.
         "verified": true
       }
     ],
-    "area": [],
+    "areas": [],
     "verified": true
   }
   ```
