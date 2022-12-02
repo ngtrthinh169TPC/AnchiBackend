@@ -212,6 +212,14 @@ Click the name of API for more details.
   }
   ```
 
+- _No new password provided_ Response:
+
+  ```json
+  {
+    "detail": "Missing new_password field."
+  }
+  ```
+
 <br>
 
 [^](#user-apis)

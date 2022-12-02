@@ -45,6 +45,8 @@ class ChangePasswordAPI(APIView):
             return Response(status=400, data={'detail': 'Invalid user credentials.'})
         if (request.data.get('password') == request.data.get('new_password')):
             return Response(status=400, data={'detail': 'Your new password should be different from the old password.'})
+        if (request.data.get('new_password') is None):
+            return Response(status=400, data={'detail': 'Missing new_password field.'})
         user.set_password(request.data.get('new_password'))
         user.save()
         return Response(status=200, data={'detail': 'Your password has been changed successfully.'})
