@@ -14,14 +14,16 @@ This project is currently (2022) being deployed [here](https://anchi-api.aqauriu
 
 Click the name of API for more details.
 
+// TODO: add api names to all detail sections
+
 ### User APIs
 
-| Name                                | Method | Path              |
-| ----------------------------------- | ------ | ----------------- |
-| [Register](#register-api)           | `POST` | `/user/`          |
-| [Login](#login-api)                 | `POST` | `/login/`         |
-| [Logout](#logout)                   | `POST` | `/logout/`        |
-| [Change Password](#change-password) | `POST` | `change-password` |
+| Name                                | Method | Path                |
+| ----------------------------------- | ------ | ------------------- |
+| [Register](#register-api)           | `POST` | `/user/`            |
+| [Login](#login-api)                 | `POST` | `/login/`           |
+| [Logout](#logout)                   | `POST` | `/logout/`          |
+| [Change Password](#change-password) | `POST` | `/change-password/` |
 
 <br>
 
@@ -80,6 +82,8 @@ Click the name of API for more details.
 
 > Register a new User.
 
+- API: `/user/`
+
 <br>
 
 - Request example:
@@ -115,6 +119,8 @@ Click the name of API for more details.
 <br>
 
 > Log in as an User.
+
+- API: `/login/`
 
 <br>
 
@@ -153,6 +159,8 @@ Click the name of API for more details.
 <br>
 
 > Log out
+
+- API: `/logout/`
 
 <br>
 
