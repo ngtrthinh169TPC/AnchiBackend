@@ -144,4 +144,4 @@ DATABASES['default'].update(db_from_env)
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-CORS_ALLOWED_ORIGINS = ['http://localhost:3000',]
+CORS_ALLOWED_ORIGINS = ['http://localhost:3000', 'https://anchi.cdn.aqaurius6666.space/',]
