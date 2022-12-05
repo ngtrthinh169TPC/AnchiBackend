@@ -118,9 +118,9 @@ class BlacklistRestaurantAPI(APIView):
             return Response(status=401, data={'detail': "You must sign in to have your blacklist restaurants listed."})
         try:
             user = AnchiUser.objects.get(id=request.user.id)
+            new_restaurants_list = json.loads(request.data.get('blacklistRestaurants'))
             if new_restaurants_list is None:
                 return Response(status=400, data={"detail": "You must provide a list to update your blacklist restaurants"})
-            new_restaurants_list = json.loads(request.data.get('blacklistRestaurants'))
             restaurants = []
             for restaurant_id in new_restaurants_list:
                 try:
